@@ -1,6 +1,7 @@
 package hrlovecraft;
 
 import java.sql.Time;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -31,7 +32,7 @@ public class TimeCardWarehouse extends Warehouse<TimeCard> {
 
     public TimeCard get(int date) {
         for(TimeCard card :timeCards)
-            if(card.id==date)
+            if(card.id() == date)
                 return card;
         return null;
     }

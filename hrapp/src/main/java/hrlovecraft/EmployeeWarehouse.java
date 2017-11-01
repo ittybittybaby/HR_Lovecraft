@@ -4,9 +4,9 @@ import java.util.ArrayList;
 
 public class EmployeeWarehouse extends Warehouse<Employee> {
 
-    private static final EmployeeWarehouse INSTANCE=new EmployeeWarehouse();
+    private static final EmployeeWarehouse INSTANCE = new EmployeeWarehouse();
 
-    private ArrayList<Employee> employees=getList();
+    private ArrayList<Employee> employees = getList();
 
     private EmployeeWarehouse(){
         //delete loop after testing
@@ -24,7 +24,7 @@ public class EmployeeWarehouse extends Warehouse<Employee> {
 
     public Employee get(int idNum){
         for(Employee employee: employees){
-            if(employee.id==idNum)
+            if(employee.employeeId == idNum)
                 return employee;
         }
         return null;

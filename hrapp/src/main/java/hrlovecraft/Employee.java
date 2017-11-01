@@ -8,7 +8,6 @@ import java.util.Date;
 
 public class Employee extends Person {
     final long employeeId;
-    Contact contactInfo;
     Department department;
     boolean isFullTime;
     LocalDateTime hireDate;
@@ -16,12 +15,13 @@ public class Employee extends Person {
     SalaryTier salaryTier;
     Benefits benefits;
     Position position;
-    TimeCardWarehouse TCW=TimeCardWarehouse.getInstance();
-    PaystubWarehouse PSW=PaystubWarehouse.getInstance();
+    TimeCardWarehouse TCW = TimeCardWarehouse.getInstance();
+    PaystubWarehouse PSW = PaystubWarehouse.getInstance();
 
     Employee(long employeeId){
         this.employeeId=employeeId;
         hireDate= LocalDateTime.now();
+        terminationDate = null;
     }
 
     public long getEmployeeId(){
@@ -45,7 +45,7 @@ public class Employee extends Person {
         this.salaryTier=salaryTier;
     }
 
-    public ArrayList<TimeCard> getTimeCards(Date fromDate, Date toDate){
+    public ArrayList<TimeCard> getTimeCards(LocalDateTime fromDate, LocalDateTime toDate){
         return TCW.get(fromDate, toDate);
     }
 
@@ -59,6 +59,10 @@ public class Employee extends Person {
 
     public ArrayList<Paystub> getPaystubs(Date fromDate, Date toDate){
         return PSW.get(fromDate, toDate);
+    }
+
+    public void setBenefits(Benefits benefits) {
+        this.benefits = benefits;
     }
 
 

@@ -1,7 +1,7 @@
 package hrlovecraft;
 
-public enum Position {
+public enum Position {Supervisor, Processor, Warehouse ;
 
-    protected 
+    public final;
 
 }

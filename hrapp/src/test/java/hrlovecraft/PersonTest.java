@@ -60,5 +60,3 @@ public class PersonTest {
         Contact contactActual = person.getContactInfo();
         Assert.assertEquals(contactExpected, contactActual);
     }
-
-}

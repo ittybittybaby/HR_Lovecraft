@@ -23,28 +23,28 @@ public class BenefitsTest {
         Assert.assertEquals(vacationDaysexpected, vacationDaysactual);
     }
 
-//    @Test
-//    public void getHasHealthcare(){
-//        Benefits benefits = new Benefits();
-//        boolean expected = false;
-//        benefits.setBenefitPackageBySalaryTier();
-//        boolean actual = benefits.getHasHealthcare();
-//        Assert.assertEquals(expected, actual);
-//    }
-//
-//    @Test
-//    public void getHasRetirementPlan(){
-//        Benefits benefits = new Benefits();
-//        boolean expected = false;
-//       benefits.setBenefitPackageBySalaryTier();
-//        boolean actual = benefits.getHasRetirementPlan();
-//        Assert.assertEquals(expected, actual);
-//    }
-//
-//    @Test
-//    public void setBenefitsPackageBySalaryTier(){
-//        Benefits benefits = new Benefits();
-//
-//    }
+    @Test
+    public void getHasHealthcare(){
+        Benefits benefits = new Benefits();
+        boolean expected = false;
+        benefits.setBenefitPackageBySalaryTier();
+        boolean actual = benefits.getHasHealthcare();
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void getHasRetirementPlan(){
+        Benefits benefits = new Benefits();
+        boolean expected = false;
+       benefits.setBenefitPackageBySalaryTier();
+        boolean actual = benefits.getHasRetirementPlan();
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void setBenefitsPackageBySalaryTier(){
+        Benefits benefits = new Benefits();
+
+    }
 
 }

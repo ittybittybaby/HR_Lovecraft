@@ -1,12 +1,12 @@
 package hrlovecraft;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
 public class Paystub {
     private Long employeeID;
     private Double amountPaid;
-    private Date payPeriodStartDate;
-    private Date getPayPeriodEndDate;
+    private LocalDateTime payPeriodStartDate;
+    private LocalDateTime getPayPeriodEndDate;
 
     public Paystub() {
         this.employeeID = null;
@@ -15,7 +15,7 @@ public class Paystub {
         getPayPeriodEndDate = null;
     }
 
-    public Paystub(long employeeID, double amountPaid, Date payPeriodStartDate, Date getPayPeriodEndDate) {
+    public Paystub(long employeeID, double amountPaid, LocalDateTime payPeriodStartDate, LocalDateTime getPayPeriodEndDate) {
         this.employeeID = employeeID;
         this.amountPaid = amountPaid;
         this.payPeriodStartDate = payPeriodStartDate;

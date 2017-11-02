@@ -1,9 +1,7 @@
 package hrlovecraft;
 
-import javafx.geometry.Pos;
-
 public enum Position {
-    CEO(100), CFO(50), Manager(25), Supervisor(20), Associate(15), Janitor(10), Handler(5);
+    Manager(25), Supervisor(20), ITManager(20), HRRepresentitive(15), MaintenenceWorker(15), Driver(15), Loader(10), Unloader(10), Reciever(10), Shipper(10), Handler(10);
 
     ;
 

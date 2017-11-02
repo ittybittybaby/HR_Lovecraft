@@ -15,21 +15,51 @@ public class Console {
     }
 
     public void handleWelcomeMessageInput() {
-        Scanner scanner = new Scanner(System.in);
-        int choice = scanner.nextInt();
-        if (choice == 1) {
-            Menu.getMenu().hireNewEmployee();
-            Console.getConsole().handleHireNewEmployeePersonalInput();
+        int choice = Integer.parseInt(getStringInput());
+        switch (choice) {
+            case 1 :
+                Menu.getMenu().hireNewEmployee();
+                break;
+
+            case 2 :
+                Menu.getMenu().manageCurrentEmployees();
+                int userChoice = Integer.parseInt(getStringInput());
+                switch (userChoice){
+                    case 1 :
+                        System.out.println("Please enter a Department name: ");
+                        break;
+
+                    case 2 :
+                        System.out.println("Please enter a specific employee ID: ");
+                        long employeeID = Long.parseLong(getStringInput());
+                        break;
+
+                    default :
+                        System.out.println("Wrong input");
+                        break;
+                } // End switch on userChoice
+                break;
+
+            default :
+                System.out.println("Wrong input");
+                break;
+
 
         }
-        else if (choice == 2) {
-            Menu.getMenu().manageCurrentEmployees();
-        }
-        else {
-            System.out.println("Invalid response. Shutting down.");
-            System.exit(0);
-        }
     }
+
+    public String getStringInput(){
+        Scanner scanner = new Scanner(System.in);
+        return scanner.nextLine();
+    }
+
+    public String getStringInput(String input){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println(input);
+        return scanner.nextLine();
+    }
+
+
 
     public void handleHireNewEmployeePersonalInput() {
         System.out.println("Please enter a name: ");

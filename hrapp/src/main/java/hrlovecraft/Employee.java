@@ -53,11 +53,11 @@ public class Employee extends Person {
         return TCW.get(fromDate);
     }
 
-    public Paystub getPaystub(int fromDate){
-        return PSW.get(fromDate);
+   public Paystub getPaystub(String fromDate){
+       return PSW.get(fromDate);
     }
 
-    public ArrayList<Paystub> getPaystubs(int fromDate, int toDate){
+    public ArrayList<Paystub> getPaystubs(String fromDate, String toDate){
         return PSW.get(fromDate, toDate);
     }
 

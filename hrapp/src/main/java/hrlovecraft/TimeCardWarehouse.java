@@ -17,7 +17,7 @@ public class TimeCardWarehouse extends Warehouse<TimeCard> {
         //delete loop after testing
         for (int i=1; i<10; i++)
 
-            timeCards.add(new TimeCard("110"+i+"2017"));
+            timeCards.add(new TimeCard("11-0"+i+"-2017-1345"));
 
     }
 
@@ -33,19 +33,19 @@ public class TimeCardWarehouse extends Warehouse<TimeCard> {
 
     public TimeCard get(String date) {
         for(TimeCard card :timeCards){
-            if(datetoString(card).equals(date));
+            if(datetoString(card).equals(date))
                 return card;}
         return null;
     }
 
-    public String datetoString(TimeCard card){
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMddyyyy");
+    public  String datetoString(TimeCard card){
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM-dd-yyyy");
         return  card.getTimeIn().format(formatter);
     }
 
     public static LocalDateTime stringToDate(String date){
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMddyyyyHHmm");
-        return LocalDateTime.parse(date+"0000", formatter);
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM-dd-yyyy-HHmm");
+        return LocalDateTime.parse(date+"-0000", formatter);
     }
 
     //change to/from dates types after TimeCard class complete

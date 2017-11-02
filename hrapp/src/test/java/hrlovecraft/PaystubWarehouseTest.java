@@ -28,7 +28,7 @@ public class PaystubWarehouseTest {
 
         String expected =" 1 2 3 4 5 6 7";
 
-        ArrayList<Paystub> arr=pSW.get("11012017", "11022017");
+        ArrayList<Paystub> arr=pSW.get("11-01-2017", "11-02-2017");
 
         String actual="";
         for (int i=0; i<arr.size(); i++)

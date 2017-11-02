@@ -5,8 +5,6 @@ public class Contact {
     private String city;
     private State state;
     private int phoneNumber;
-    private String emergencyContactName;
-    private int emergencyContactPhoneNumber;
     private String email;
 
     public Contact() {
@@ -14,18 +12,14 @@ public class Contact {
         this.city = null;
         this.state = null;
         this.phoneNumber = 0;
-        this.emergencyContactName = null;
-        this.emergencyContactPhoneNumber = 0;
         this.email = null;
     }
 
-    public Contact(String streetAddress, String city, State state, int phoneNumber, String emergencyContactName, int emergencyContactPhoneNumber, String email) {
+    public Contact(String streetAddress, String city, State state, int phoneNumber, String email) {
         this.streetAddress = streetAddress;
         this.city = city;
         this.state = state;
         this.phoneNumber = phoneNumber;
-        this.emergencyContactName = emergencyContactName;
-        this.emergencyContactPhoneNumber = emergencyContactPhoneNumber;
         this.email = email;
     }
 
@@ -59,22 +53,6 @@ public class Contact {
 
     public void setPhoneNumber(int phoneNumber) {
         this.phoneNumber = phoneNumber;
-    }
-
-    public String getEmergencyContactName() {
-        return emergencyContactName;
-    }
-
-    public void setEmergencyContactName(String emergencyContactName) {
-        this.emergencyContactName = emergencyContactName;
-    }
-
-    public int getEmergencyContactPhoneNumber() {
-        return emergencyContactPhoneNumber;
-    }
-
-    public void setEmergencyContactPhoneNumber(int emergencyContactPhoneNumber) {
-        this.emergencyContactPhoneNumber = emergencyContactPhoneNumber;
     }
 
     public String getEmail() {

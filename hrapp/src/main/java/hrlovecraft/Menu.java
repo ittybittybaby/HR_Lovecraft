@@ -1,35 +1,37 @@
 package hrlovecraft;
 
 public class Menu {
-    private static String title;
-    private static String message;
-    private static String userChoice;
-    private static String userInput;
 
+    private static Menu INSTANCE = new Menu();
 
-    public static String welcomeMessage() {
-        title = "Welcome to the HR application!\n";
-        message = "What would you like to do today? Enter 1 for Hire New Employee. Enter 2 for Manage Current Employees.\n";
-        userChoice = "1) Hire New Employee\n2) Manage Current Employees";
-        return title + message + userChoice;
+    public static Menu getMenu() {
+        return INSTANCE;
+    }
+
+    private Menu() {
+
     }
 
 
-    public static String hireNewEmployee() {
-        title = "Hire New Employee\n";
-        message = "Please fill out the following information.\n";
-        userInput = "Please enter a name: ";
-        // need to write more form fields for user to fill out
-        return title + message + userInput;
+    public void printWelcomeMessage() {
+        System.out.println("Welcome to the HR application\n"
+                            + "What would you like to do today\n"
+                            + "1) Hire New Employee\n"
+                            + "2) Manage Current Employees");
+        Console.getConsole().handleWelcomeMessageInput();
     }
 
-
-    public static String manageCurrentEmployees() {
-        title = "Manage Current Employees\n";
-        message = "Enter 1 to choose a Department. Enter 2 to choose a Specific Employee.\n";
-        userChoice = "1) Department \n 2) Specific Employee";
-        return title + message + userChoice;
+    public void hireNewEmployee() {
+        System.out.println("Hire New Employee\n"
+                         + "Please fill out the following information\n");
     }
+
+    public void manageCurrentEmployees() {
+        System.out.println("Manage Current Employees\n"
+                + "1) Choose a Department"
+                + "2) Choose a specific employee");
+    }
+
 
     // depending on choice, prompt user to input Department name or Employee ID
     // now prompt user to either view or manage Department or Specific Employee

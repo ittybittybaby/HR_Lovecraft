@@ -71,7 +71,7 @@ public class Menu {
         System.out.println("Enter Employee ID to update: ");
     }
 
-    public void manageEmployeeMenu(){
+    public void updateEmployeeMenu(){
         System.out.println("What would you like to update?\n" +
                            "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n" +
                            "1)Personal Information\n" +
@@ -120,6 +120,40 @@ public class Menu {
     public void setVacationDays(){
         System.out.println("Change total vacation days to: ");
     }
+
+    public void manageEmployeeMenu(){
+        System.out.println("What would you like to do?\n" +
+                           "~~~~~~~~~~~~~~~~~~~~~~~~~~\n" +
+                           "1)Update Employee information\n" +
+                           "2)Edit Timecard\n" +
+                           "3)View paystubs\n");
+    }
+
+    public void timecardMenu(){
+        System.out.println("What would you like to do?\n" +
+                           "~~~~~~~~~~~~~~~~~~~~~~~~~\n" +
+                           "1)Clock in\n" +
+                           "2)Clock out\n" +
+                           "3)View timecard\n");
+    }
+
+    public void setClockIn(){
+        System.out.println("Clock in time: ");
+    }
+
+    public void setClockOutTime(){
+        System.out.println("Clock out time: ");
+    }
+
+    public void viewTimecard(){
+        System.out.println("Enter the date or dates you would like to view: ");
+    }
+
+    public void viewPaysub(){
+        System.out.println("Enter the pay period or pay periods you would like to view: ");
+    }
+
+
 
 
     // depending on choice, prompt user to input Department name or Employee ID

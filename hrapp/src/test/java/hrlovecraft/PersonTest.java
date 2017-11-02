@@ -59,4 +59,4 @@ public class PersonTest {
         person.setContactInfo(contactExpected);
         Contact contactActual = person.getContactInfo();
         Assert.assertEquals(contactExpected, contactActual);
-    }
+    }}

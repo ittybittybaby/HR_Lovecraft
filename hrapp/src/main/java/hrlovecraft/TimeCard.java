@@ -9,6 +9,12 @@ public class TimeCard {
     private LocalDateTime timeOut;
     private long employeeId;
 
+    public TimeCard(String timeIn){
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMddyyyyHHmm");
+        this.timeIn= LocalDateTime.parse(timeIn, formatter);
+        timeOut=LocalDateTime.now();
+    }
+
     public void clockIn() {
         this.timeIn = LocalDateTime.now();
     }

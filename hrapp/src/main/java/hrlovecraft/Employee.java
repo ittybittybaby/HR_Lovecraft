@@ -45,19 +45,19 @@ public class Employee extends Person {
         this.salaryTier=salaryTier;
     }
 
-    public ArrayList<TimeCard> getTimeCards(LocalDateTime fromDate, LocalDateTime toDate){
+    public ArrayList<TimeCard> getTimeCards(String fromDate, String toDate){
         return TCW.get(fromDate, toDate);
     }
 
-    public TimeCard getTimeCard(Date fromDate){
+    public TimeCard getTimeCard(String fromDate){
         return TCW.get(fromDate);
     }
 
-    public Paystub getPaystub(Date fromDate){
+    public Paystub getPaystub(int fromDate){
         return PSW.get(fromDate);
     }
 
-    public ArrayList<Paystub> getPaystubs(Date fromDate, Date toDate){
+    public ArrayList<Paystub> getPaystubs(int fromDate, int toDate){
         return PSW.get(fromDate, toDate);
     }
 

@@ -3,6 +3,7 @@ package hrlovecraft;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 import static org.junit.Assert.*;
@@ -15,7 +16,7 @@ public class PaystubWarehouseTest {
 
         int expected =pSW.getSize()+1;
 
-        pSW.add(new Paystub(9));
+       // pSW.add(new Paystub(100, LocalDateTime.now(),));
         int actual= pSW.getSize();
 
         Assert.assertEquals(expected,actual);

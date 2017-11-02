@@ -17,7 +17,7 @@ public class TimeCardWarehouse extends Warehouse<TimeCard> {
         //delete loop after testing
         for (int i=1; i<10; i++)
 
-            timeCards.add(new TimeCard(i));
+            timeCards.add(new TimeCard("110"+i+"2017"));
 
     }
 
@@ -33,21 +33,26 @@ public class TimeCardWarehouse extends Warehouse<TimeCard> {
 
     public TimeCard get(String date) {
         for(TimeCard card :timeCards){
-            if(dateOnly(card).equals(date));
+            if(datetoString(card).equals(date));
                 return card;}
         return null;
     }
 
-    public String dateOnly(TimeCard card){
+    public String datetoString(TimeCard card){
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMddyyyy");
         return  card.getTimeIn().format(formatter);
     }
 
+    public static LocalDateTime stringToDate(String date){
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMddyyyyHHmm");
+        return LocalDateTime.parse(date+"0000", formatter);
+    }
+
     //change to/from dates types after TimeCard class complete
-    public ArrayList<TimeCard> get(int dateFrom, int dateTo) {
+    public ArrayList<TimeCard> get(String dateFrom, String dateTo) {
         ArrayList<TimeCard> cardSelection=new ArrayList<TimeCard>();
         for (TimeCard card: timeCards){
-            if(card.getTimeIn().isAfter(dateFrom)&&card.getTimeIn().isBefore(dateTo))
+            if(card.getTimeIn().isAfter(stringToDate(dateFrom))&&card.getTimeIn().isBefore(stringToDate(dateTo)))
                 cardSelection.add(card);
         }
         return cardSelection;

@@ -20,13 +20,7 @@ public class Menu {
                            "What would you like to do today\n" +
                            "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n" +
                            "1) Hire New Employee\n" +
-                           "2) Manage Current Employees");
-        Console.getConsole().handleWelcomeMessageInput();
-    }
-
-    public void hireNewEmployeeMenu() {
-        System.out.println("Hire New Employee\n"
-                         + "Please fill out the following information\n");
+                           "2) Manage Current Employees\n");
     }
 
     public void setEmployeeName(){
@@ -86,7 +80,7 @@ public class Menu {
                            "4)Termination Date\n" +
                            "5)Salary Tier\n" +
                            "6)Benefits\n" +
-                           "7)Position");
+                           "7)Position\n");
     }
 
     public void updatePersonalInfo(){
@@ -95,21 +89,36 @@ public class Menu {
                            "1)Name\n" +
                            "2)Address\n" +
                            "3)Phone Number\n" +
-                           "4)Email");
+                           "4)Email\n");
     }
 
     public void setEmployeeTerminationDate(){
         System.out.println("Termination Date: ");
     }
 
-//    public void setEmployeeBenefits(){
-//        System.out.println("Would you like benefits?");
-//    }
+    public void setEmployeeBenefitsMenu(){
+        System.out.println("Benefits\n" +
+                           "~~~~~~~~\n" +
+                           "1)Healthcare plan\n" +
+                           "2)Retirement plan\n" +
+                           "3)Sick days\n" +
+                           "4)Vacation days\n");
+    }
 
-    public void manageCurrentEmployees() {
-        System.out.println("Manage Current Employees\n"
-                + "1) Choose a Department"
-                + "2) Choose a specific employee");
+    public void setHealthcarePlan(){
+        System.out.println("Would you like a Healthcare plan?(y/n): ");
+    }
+
+    public void setRetirementPlan(){
+        System.out.println("Would you like a Retirement plan?(y/n): ");
+    }
+
+    public void setSickDays(){
+        System.out.println("Change total sick days to: ");
+    }
+
+    public void setVacationDays(){
+        System.out.println("Change total vacation days to: ");
     }
 
 

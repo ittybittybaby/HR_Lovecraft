@@ -36,7 +36,7 @@ public class PaystubWarehouse extends Warehouse<Paystub> {
     public Paystub get(String date){
         LocalDateTime getDate= TimeCardWarehouse.stringToDate(date);
         for(Paystub paystub: paystubs){
-            if(paystub.getPayPeriodStartDate().equals(getDate));
+            if(paystub.getPayPeriodStartDate().equals(getDate))
                 return paystub;}
                 return null;
 

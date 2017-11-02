@@ -3,35 +3,34 @@ package hrlovecraft;
 import org.junit.Assert;
 import org.junit.Test;
 
-import static hrlovecraft.Department.HUMAN_RESOURCES;
-import static hrlovecraft.Department.INVENTORY_MANAGEMENT;
-import static hrlovecraft.Department.QUALITY_CONTROL;
+import static hrlovecraft.Department.*;
+
 
 public class DepartmentTest {
 
-    @Test
+   @Test
     public void setToInventoryManagementTest(){
-        Department expected = INVENTORY_MANAGEMENT;
+        Department expected = InventoryManagement;
 
-        Department actual = Department.INVENTORY_MANAGEMENT;
+        Department actual = Department.InventoryManagement;
 
         Assert.assertEquals(expected, actual);
     }
 
     @Test
-    public void setToQualityControlTest(){
-        Department expected = QUALITY_CONTROL;
+    public void setToOperationsTest(){
+        Department expected = Operations;
 
-        Department actual = Department.QUALITY_CONTROL;
+        Department actual = Department.Operations;
 
         Assert.assertEquals(expected, actual);
     }
 
     @Test
     public void setToHumanResourcesTest(){
-        Department expected = HUMAN_RESOURCES;
+        Department expected = HumanResources;
 
-        Department actual = Department.HUMAN_RESOURCES;
+        Department actual = Department.HumanResources;
 
         Assert.assertEquals(expected, actual);
     }

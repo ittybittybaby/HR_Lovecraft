@@ -32,7 +32,7 @@ public class PersonTest {
         int emergencyContactPhoneNumber = 2039127969;
         String email = "Basgolfer@gmail.com";
 
-        Contact contactInfoExpected = new Contact(address, city, state, phoneNumber, emergencyContactName, emergencyContactPhoneNumber, email);
+        Contact contactInfoExpected = new Contact(address, city, state, phoneNumber, email);
 
         Person person = new Person(nameExpected, contactInfoExpected);
 

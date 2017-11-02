@@ -1,5 +1,6 @@
 package hrlovecraft;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 public class PaystubWarehouse extends Warehouse<Paystub> {
@@ -9,7 +10,7 @@ public class PaystubWarehouse extends Warehouse<Paystub> {
     private PaystubWarehouse(){
         //delete loop after testing
         for (int i=1; i<10; i++)
-            paystubs.add(new Paystub(i));
+            paystubs.add(new Paystub(45, 1200, LocalDateTime.now(), LocalDateTime.now()));
     }
 
     public static PaystubWarehouse getInstance(){
@@ -21,18 +22,24 @@ public class PaystubWarehouse extends Warehouse<Paystub> {
     }
 
     //change from/to lines after Paystub class is complete
-    public ArrayList<Paystub> get(int fromDate, int toDate){
+    public ArrayList<Paystub> get(String fromDate, String toDate){
+        LocalDateTime localFromDate=TimeCardWarehouse.stringToDate(fromDate);
+                LocalDateTime localToDate= TimeCardWarehouse.stringToDate(toDate);
         ArrayList<Paystub> paystubArrayList=new ArrayList<Paystub>();
         for (Paystub paystub:paystubs){
-            if (paystub.id>=fromDate&&paystub.id<=toDate)
+            if (paystub.getPayPeriodStartDate().isAfter(localFromDate)&&paystub.getGetPayPeriodEndDate().isBefore(localToDate))
                     paystubArrayList.add(paystub);
         }
         return paystubArrayList;
     }
 
-    public Paystub get(int date){
-        Paystub stub= paystubs.get(date);
-        return stub;
+    public Paystub get(String date){
+        LocalDateTime getDate= TimeCardWarehouse.stringToDate(date);
+        for(Paystub paystub: paystubs){
+            if(paystub.getPayPeriodStartDate().equals(getDate));
+                return paystub;}
+                return null;
+
     }
 
 

@@ -24,11 +24,13 @@ public class EmployeeWarehouse extends Warehouse<Employee> {
 
     public Employee get(int idNum){
         for(Employee employee: employees){
-            if(employee.employeeId == idNum)
+            if(employee.getEmployeeId() == idNum)
                 return employee;
         }
         return null;
     }
+
+
 
     public int size(){
         return employees.size();

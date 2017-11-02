@@ -7,16 +7,16 @@ import java.util.ArrayList;
 import java.util.Date;
 
 public class Employee extends Person {
-    final long employeeId;
-    Department department;
+    private final long employeeId;
+    private Department department;
     boolean isFullTime;
-    LocalDateTime hireDate;
-    LocalDateTime terminationDate;
-    SalaryTier salaryTier;
-    Benefits benefits;
-    Position position;
-    TimeCardWarehouse TCW = TimeCardWarehouse.getInstance();
-    PaystubWarehouse PSW = PaystubWarehouse.getInstance();
+    private LocalDateTime hireDate;
+    private LocalDateTime terminationDate;
+    private SalaryTier salaryTier;
+    private Benefits benefits;
+    private Position position;
+    private TimeCardWarehouse TCW = TimeCardWarehouse.getInstance();
+    private PaystubWarehouse PSW = PaystubWarehouse.getInstance();
 
     Employee(long employeeId){
         this.employeeId=employeeId;
@@ -45,19 +45,19 @@ public class Employee extends Person {
         this.salaryTier=salaryTier;
     }
 
-    public ArrayList<TimeCard> getTimeCards(LocalDateTime fromDate, LocalDateTime toDate){
+    public ArrayList<TimeCard> getTimeCards(String fromDate, String toDate){
         return TCW.get(fromDate, toDate);
     }
 
-    public TimeCard getTimeCard(Date fromDate){
+    public TimeCard getTimeCard(String fromDate){
         return TCW.get(fromDate);
     }
 
-    public Paystub getPaystub(Date fromDate){
+    public Paystub getPaystub(int fromDate){
         return PSW.get(fromDate);
     }
 
-    public ArrayList<Paystub> getPaystubs(Date fromDate, Date toDate){
+    public ArrayList<Paystub> getPaystubs(int fromDate, int toDate){
         return PSW.get(fromDate, toDate);
     }
 

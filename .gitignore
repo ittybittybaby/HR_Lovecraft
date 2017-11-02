@@ -9,7 +9,6 @@
 ~/.DS_Store
 .idea/
 hrapp.iml
-pom.xml
 
 # Sensitive or high-churn files:
 .idea/**/dataSources/

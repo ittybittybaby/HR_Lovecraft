@@ -18,12 +18,12 @@ public class Console {
         Scanner scanner = new Scanner(System.in);
         int choice = scanner.nextInt();
         if (choice == 1) {
-            //Menu.getMenu().hireNewEmployee();
+            Menu.getMenu().hireNewEmployee();
             Console.getConsole().handleHireNewEmployeePersonalInput();
 
         }
         else if (choice == 2) {
-            //Menu.getMenu().manageCurrentEmployees();
+            Menu.getMenu().manageCurrentEmployees();
         }
         else {
             System.out.println("Invalid response. Shutting down.");

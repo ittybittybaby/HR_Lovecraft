@@ -16,7 +16,7 @@ public class PaystubWarehouseTest {
 
         int expected =pSW.getSize()+1;
 
-       // pSW.add(new Paystub(100, LocalDateTime.now(),));
+        pSW.add(new Paystub(45, 100, LocalDateTime.now(),LocalDateTime.now()));
         int actual= pSW.getSize();
 
         Assert.assertEquals(expected,actual);
@@ -28,7 +28,7 @@ public class PaystubWarehouseTest {
 
         String expected =" 1 2 3 4 5 6 7";
 
-        ArrayList<Paystub> arr=pSW.get(1,7);
+        ArrayList<Paystub> arr=pSW.get("11012017", "11022017");
 
         String actual="";
         for (int i=0; i<arr.size(); i++)

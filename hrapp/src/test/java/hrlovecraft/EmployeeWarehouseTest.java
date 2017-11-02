@@ -10,9 +10,9 @@ public class EmployeeWarehouseTest {
     EmployeeWarehouse eWH= EmployeeWarehouse.getInstance();
     @Test
     public void addTest() throws Exception {
-        int expected=eWH.size()+1;
-        eWH.add(new Employee(44));
-        int actual =eWH.size();
+        Employee expected=new Employee(44);
+        eWH.add(expected);
+        Employee actual =eWH.get(44);
 
         Assert.assertEquals(expected, actual);
     }

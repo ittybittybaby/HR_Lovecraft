@@ -9,19 +9,13 @@ public class TimeCard {
     private LocalDateTime timeOut;
     private long employeeId;
 
+
     public TimeCard(String timeIn){
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMddyyyyHHmm");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM-dd-yyyy-HHmm");
         this.timeIn= LocalDateTime.parse(timeIn, formatter);
         timeOut=LocalDateTime.now();
     }
 
-    public void clockIn() {
-        this.timeIn = LocalDateTime.now();
-    }
-
-    public void clockOut() {
-        this.timeOut = LocalDateTime.now();
-    }
 
     public LocalDateTime getTimeIn() {
         return timeIn;
@@ -33,6 +27,12 @@ public class TimeCard {
 
     public long getEmployeeId() {
         return employeeId;
+    }
+
+
+    public String toString(){
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM-dd-yyyy-HHmm");
+        return  getTimeIn().format(formatter);
     }
 
 }

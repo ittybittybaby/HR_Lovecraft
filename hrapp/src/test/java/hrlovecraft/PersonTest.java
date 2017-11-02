@@ -18,30 +18,30 @@ public class PersonTest {
         Assert.assertEquals(contactExpected, contactActual);
     }
 
-    @Test
-    public void personConstructorTest_AllArguments() {
-        //Part of person object
-        String nameExpected = "Brian Sutton";
-
-        //Part of contact object
-        String address = "9 Musket lane";
-        String city = "Darien";
-        State state = State.CONNECTICUT;
-        int phoneNumber = 203655780;
-        String emergencyContactName = "Sally Sutton";
-        int emergencyContactPhoneNumber = 2039127969;
-        String email = "Basgolfer@gmail.com";
-
-        Contact contactInfoExpected = new Contact(address, city, state, phoneNumber, emergencyContactName, emergencyContactPhoneNumber, email);
-
-        Person person = new Person(nameExpected, contactInfoExpected);
-
-        String nameActual = person.getName();
-        Contact contactInfoActual = person.getContactInfo();
-
-        Assert.assertEquals(nameExpected, nameActual);
-        Assert.assertEquals(contactInfoExpected, contactInfoActual);
-    }
+//    @Test
+//    public void personConstructorTest_AllArguments() {
+//        //Part of person object
+//        String nameExpected = "Brian Sutton";
+//
+//        //Part of contact object
+//        String address = "9 Musket lane";
+//        String city = "Darien";
+//        State state = State.CONNECTICUT;
+//        int phoneNumber = 203655780;
+//        String emergencyContactName = "Sally Sutton";
+//        int emergencyContactPhoneNumber = 2039127969;
+//        String email = "Basgolfer@gmail.com";
+//
+//        Contact contactInfoExpected = new Contact(address, city, state, phoneNumber, emergencyContactName, emergencyContactPhoneNumber, email);
+//
+//        Person person = new Person(nameExpected, contactInfoExpected);
+//
+//        String nameActual = person.getName();
+//        Contact contactInfoActual = person.getContactInfo();
+//
+//        Assert.assertEquals(nameExpected, nameActual);
+//        Assert.assertEquals(contactInfoExpected, contactInfoActual);
+//    }
 
     @Test
     public void getSetNameTest() {

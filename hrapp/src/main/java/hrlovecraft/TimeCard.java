@@ -1,6 +1,7 @@
 package hrlovecraft;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class TimeCard {
 
@@ -27,4 +28,5 @@ public class TimeCard {
     public long getEmployeeId() {
         return employeeId;
     }
+
 }

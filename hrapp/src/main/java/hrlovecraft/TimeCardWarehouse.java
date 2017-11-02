@@ -2,6 +2,7 @@ package hrlovecraft;
 
 import java.sql.Time;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -30,19 +31,23 @@ public class TimeCardWarehouse extends Warehouse<TimeCard> {
 
     }
 
-    public TimeCard get(int date) {
-        for(TimeCard card :timeCards)
-            if(card.id() == date)
-                return card;
+    public TimeCard get(String date) {
+        for(TimeCard card :timeCards){
+            if(dateOnly(card).equals(date));
+                return card;}
         return null;
     }
 
+    public String dateOnly(TimeCard card){
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMddyyyy");
+        return  card.getTimeIn().format(formatter);
+    }
 
     //change to/from dates types after TimeCard class complete
     public ArrayList<TimeCard> get(int dateFrom, int dateTo) {
         ArrayList<TimeCard> cardSelection=new ArrayList<TimeCard>();
         for (TimeCard card: timeCards){
-            if(card.id>=dateFrom && card.id<=dateTo)
+            if(card.getTimeIn().isAfter(dateFrom)&&card.getTimeIn().isBefore(dateTo))
                 cardSelection.add(card);
         }
         return cardSelection;

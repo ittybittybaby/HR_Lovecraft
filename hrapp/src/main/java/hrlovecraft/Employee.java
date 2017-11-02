@@ -7,16 +7,16 @@ import java.util.ArrayList;
 import java.util.Date;
 
 public class Employee extends Person {
-    final long employeeId;
-    Department department;
+    private final long employeeId;
+    private Department department;
     boolean isFullTime;
-    LocalDateTime hireDate;
-    LocalDateTime terminationDate;
-    SalaryTier salaryTier;
-    Benefits benefits;
-    Position position;
-    TimeCardWarehouse TCW = TimeCardWarehouse.getInstance();
-    PaystubWarehouse PSW = PaystubWarehouse.getInstance();
+    private LocalDateTime hireDate;
+    private LocalDateTime terminationDate;
+    private SalaryTier salaryTier;
+    private Benefits benefits;
+    private Position position;
+    private TimeCardWarehouse TCW = TimeCardWarehouse.getInstance();
+    private PaystubWarehouse PSW = PaystubWarehouse.getInstance();
 
     Employee(long employeeId){
         this.employeeId=employeeId;

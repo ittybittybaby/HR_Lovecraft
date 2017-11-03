@@ -67,5 +67,10 @@ public class Employee extends Person {
 
     public void setPosition(Position position){this.position=position;}
 
+    public void submitTimeCard(TimeCard timeCard){
+        TCW.add(timeCard);
+    }
+
+
 
 }

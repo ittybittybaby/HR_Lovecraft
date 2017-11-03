@@ -16,7 +16,6 @@ public class EmployeeWarehouse extends Warehouse<Employee> {
     }
 
     private EmployeeWarehouse(){
-
      }
 
     public static EmployeeWarehouse getInstance(){

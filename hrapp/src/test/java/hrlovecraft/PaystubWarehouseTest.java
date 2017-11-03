@@ -10,7 +10,10 @@ import static org.junit.Assert.*;
 
 public class PaystubWarehouseTest {
 
-    PaystubWarehouse pSW=PaystubWarehouse.getInstance();
+    PaystubWarehouse pSW=new PaystubWarehouse();
+    {for (int i=1; i<10; i++)
+        pSW.add(new Paystub(45, 1200, LocalDateTime.now(), LocalDateTime.now()));
+    }
     @Test
     public void addTest() throws Exception {
 

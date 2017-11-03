@@ -8,7 +8,7 @@ public class EmployeeManagement extends Menu {
     public enum EmpManagement{UPDATE, REPORTS, TERMINATE, MAIN, BACK}
 
     private EmployeeManagement(){
-        super(EmpManagement.values());
+        super(EmpManagement.values(), "placeholder message");
     }
 
     @Override

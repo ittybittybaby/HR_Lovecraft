@@ -1,68 +1,76 @@
 package hrlovecraft.menus;
 
-//import hrlovecraft.Menu;
+//import hrlovecraft.MenuPrompts;
 
 import hrlovecraft.EmployeeWarehouse;
 import hrlovecraft.State;
 
 public class CreateNewEmployee extends Menu{
 
-    private static final CreateNewEmployee INSTANCE=new CreateNewEmployee();
+    private static final CreateNewEmployee INSTANCE = new CreateNewEmployee();
 
-    public enum NewEmployeeSelections{NAME, ADDRESS, PHONE, EMAIL, SUBMIT, CANCEL}
+    public enum NewEmployeeSelections {NAME, ADDRESS, PHONE, EMAIL, SUBMIT, CANCEL}
 
-    private CreateNewEmployee(){
-        super(NewEmployeeSelections.values());
+    private CreateNewEmployee() {
+        super(NewEmployeeSelections.values(), "\nWhat information " +
+                "would you like to enter in about this employee?");
     }
-    private String [] employee=new String [6];
+    private String[] employee = new String [6];
 
     @Override
     public void userSelect(String userInput) {
-        switch ( NewEmployeeSelections.valueOf(userInput)){
-            case NAME: name();
-                break;
-            case ADDRESS: address();
-                break;
-            case PHONE: phone();
-                break;
-            case EMAIL: email();
-            break;
-            case SUBMIT: checkAndSubmitEmployeeInfo();
-            break;
-            case CANCEL: cancel();
-            break;
 
-            default:
-                display();
-
+        try {
+            switch (NewEmployeeSelections.valueOf(userInput)) {
+                case NAME: name();
+                    break;
+                case ADDRESS: address();
+                    break;
+                case PHONE: phone();
+                    break;
+                case EMAIL: email();
+                    break;
+                case SUBMIT: createEmployee();
+                    break;
+                case CANCEL: cancel();
+                    break;
+                default:
+                    display();
+            }
         }
+        catch (Exception e) {
+            System.out.println("\nInvalid employee input option. Please enter again.\n");
+        }
+
 
 
     }
 
     private void cancel() {
-        employee=new String [6];
+        employee = new String[6];
         MainMenu.getInstance().display();
     }
 
     private void createEmployee() {
 
-        //eWH.add(employee);
-        //MainMenu.getInstance().display();
+        eWH.add(employee);
+        System.out.println("\nEmployee added!");
+        MainMenu.getInstance().display();
+
     }
 
     private void email() {
-        System.out.print("Enter an email address: ");
+        System.out.print("\nEnter an email address: ");
         employee[5]=in.nextLine();
     }
 
     private void phone() {
-        System.out.print("Enter a phone number: ");
+        System.out.print("\nEnter a phone number: ");
         employee[4]=in.nextLine();
     }
 
     private void address() {
-        System.out.print("Enter the street address: ");
+        System.out.print("\nEnter the street address: ");
         employee[1]=in.nextLine();
         System.out.print("Enter the city: ");
         employee[2]=in.nextLine();
@@ -72,7 +80,7 @@ public class CreateNewEmployee extends Menu{
     }
 
     private void name() {
-        System.out.print("Enter the new Employee's Name: ");
+        System.out.print("\nEnter the new Employee's Name: ");
         employee[0]=in.nextLine();
         INSTANCE.display();
     }

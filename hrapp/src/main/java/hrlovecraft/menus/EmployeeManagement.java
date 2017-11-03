@@ -1,22 +1,24 @@
 package hrlovecraft.menus;
 
+import com.oracle.deploy.update.UpdateCheck;
+
 public class EmployeeManagement extends Menu {
     private static final EmployeeManagement INSTANCE=new EmployeeManagement();
 
-    public enum EmpManagement{UPDATE_EMPLOYEE_INFORMATION, EMPLOYEE_REPORTS, TERMINATE_EMPLOYEE, MAIN, BACK}
+    public enum EmpManagement{UPDATE, REPORTS, TERMINATE, MAIN, BACK}
 
     private EmployeeManagement(){
-        super(EmpManagement.values());
+        super(EmpManagement.values(), "placeholder message");
     }
 
     @Override
     public void userSelect(String userInput) {
         switch ( EmpManagement.valueOf(userInput)){
-            case UPDATE_EMPLOYEE_INFORMATION: updateInformation();
+            case UPDATE: updateInformation();
                 break;
-            case EMPLOYEE_REPORTS: employeeReports();
+            case REPORTS: employeeReports();
                 break;
-            case TERMINATE_EMPLOYEE:
+            case TERMINATE:
                 break;
             case BACK: MainMenu.getInstance().display();
             break;

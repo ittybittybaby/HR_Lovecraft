@@ -23,6 +23,7 @@ public class EmployeeWarehouse extends Warehouse<Employee> {
         return INSTANCE;
     }
 
+
     public void add(String ... empData){
 
 Employee employee=new Employee(getIdNum(),empData[0],empData[1],empData[2],empData[3],empData[4],empData[5]);

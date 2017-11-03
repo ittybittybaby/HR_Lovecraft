@@ -29,9 +29,11 @@ public class EmployeeManagement extends Menu {
     }
 
     private void payrollManagement() {
+        PayrollManagement.getInstance().display();
     }
 
     private void updateInformation() {
+        EmployeeUpdate.getINSTANCE().display();
 
     }
 

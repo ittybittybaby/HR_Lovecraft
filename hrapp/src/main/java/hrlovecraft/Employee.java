@@ -9,7 +9,6 @@ import java.util.Date;
 public class Employee extends Person {
     private final long employeeId;
     private Department department;
-    boolean isFullTime;
     private LocalDateTime hireDate;
     private LocalDateTime terminationDate;
     private SalaryTier salaryTier;

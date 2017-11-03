@@ -1,5 +1,7 @@
 package hrlovecraft.menus;
 
+import com.oracle.deploy.update.UpdateCheck;
+
 public class EmployeeManagement extends Menu {
     private static final EmployeeManagement INSTANCE=new EmployeeManagement();
 
@@ -16,7 +18,7 @@ public class EmployeeManagement extends Menu {
                 updateInformation();
                 break;
             case PAYROLL_MANAGEMENT:
-                payrollManagement();
+                PayrollManagement.getInstance().display();
                 break;
             case MAIN:
                 MainMenu.getInstance().display();

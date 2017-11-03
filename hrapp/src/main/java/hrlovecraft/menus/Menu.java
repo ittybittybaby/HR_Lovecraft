@@ -6,7 +6,7 @@ import hrlovecraft.EmployeeWarehouse;
 import java.util.Scanner;
 
 public abstract class Menu {
-    EmployeeWarehouse eWH=EmployeeWarehouse.getInstance();
+    EmployeeWarehouse eWH = EmployeeWarehouse.getInstance();
 
     Employee employee;
 
@@ -19,7 +19,7 @@ public abstract class Menu {
         this.menuMessage =  menuMessage;
     }
 
-    Scanner in=new Scanner(System.in);
+    Scanner in = new Scanner(System.in);
 
     public abstract void userSelect(String userInput);
 

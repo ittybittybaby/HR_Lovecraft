@@ -6,7 +6,7 @@ public class PayrollManagement extends Menu {
     public enum Payroll {CREATE_PAYSTUB, VIEW_PAY_PERIOD, MAIN, BACK}
 
     private PayrollManagement(){
-        super(Payroll.values());
+        super(Payroll.values(), "test message");
     }
 
     @Override

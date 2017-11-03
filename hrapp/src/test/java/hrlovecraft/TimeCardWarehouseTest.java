@@ -10,8 +10,11 @@ import java.util.ArrayList;
 import static org.junit.Assert.*;
 
 public class TimeCardWarehouseTest {
-    TimeCardWarehouse tCW=TimeCardWarehouse.getInstance();
+    TimeCardWarehouse tCW=new TimeCardWarehouse();
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM-dd-yyyy HH:mm");
+    {for (int i=1; i<10; i++)
+
+        tCW.add(new TimeCard("11-0"+i+"-2017-1345"));}
     @Test
     public void addTest() throws Exception {
 

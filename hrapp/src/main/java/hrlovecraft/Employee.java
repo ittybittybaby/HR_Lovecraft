@@ -15,8 +15,8 @@ public class Employee extends Person {
     private SalaryTier salaryTier;
     private Benefits benefits;
     private Position position;
-    private TimeCardWarehouse TCW = TimeCardWarehouse.getInstance();
-    private PaystubWarehouse PSW = PaystubWarehouse.getInstance();
+    private TimeCardWarehouse TCW = new TimeCardWarehouse();
+    private PaystubWarehouse PSW = new PaystubWarehouse();
 
     Employee(long employeeId, String name,String addr, String city, String state, String phone, String email){
         super(name, addr, city, state, phone, email);

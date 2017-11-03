@@ -20,7 +20,7 @@ public class EmployeeManagement extends Menu {
                 break;
             case BACK: MainMenu.getInstance().display();
             break;
-
+            default: display();
         }
 
     }
@@ -29,6 +29,7 @@ public class EmployeeManagement extends Menu {
     }
 
     private void updateInformation() {
+
     }
 
     public static EmployeeManagement getInstance(){

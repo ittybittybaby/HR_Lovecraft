@@ -29,7 +29,7 @@ public class MainMenu extends Menu {
                 System.exit(0);
                 break;
             default:
-                display();
+                super.display();
 
         }
 

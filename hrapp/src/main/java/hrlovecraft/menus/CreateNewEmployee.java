@@ -3,6 +3,7 @@ package hrlovecraft.menus;
 //import hrlovecraft.Menu;
 
 import hrlovecraft.EmployeeWarehouse;
+import hrlovecraft.State;
 
 public class CreateNewEmployee extends Menu{
 
@@ -26,7 +27,7 @@ public class CreateNewEmployee extends Menu{
                 break;
             case EMAIL: email();
             break;
-            case SUBMIT: createEmployee();
+            case SUBMIT: checkAndSubmitEmployeeInfo();
             break;
             case CANCEL: cancel();
             break;
@@ -46,8 +47,8 @@ public class CreateNewEmployee extends Menu{
 
     private void createEmployee() {
 
-        eWH.add(employee);
-        MainMenu.getInstance().display();
+        //eWH.add(employee);
+        //MainMenu.getInstance().display();
     }
 
     private void email() {
@@ -78,5 +79,23 @@ public class CreateNewEmployee extends Menu{
 
     public static CreateNewEmployee getInstance(){
         return INSTANCE;
+    }
+
+    public void checkAndSubmitEmployeeInfo(){
+        try{
+            for (String s:employee)
+                if(s==null)
+                    throw new Exception("Fill out all fields");
+            State.valueOf(employee[3]);
+            Long.parseLong(employee[4]);
+            if(employee[4].length()<10)
+                throw new Exception("Phone Number: not enough digits");
+            eWH.add(employee);
+            MainMenu.getInstance().display();
+        }catch (Exception ex){
+            System.out.println(ex);
+            display();
+        }
+
     }
 }

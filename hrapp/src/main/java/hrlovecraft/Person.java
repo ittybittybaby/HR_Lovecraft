@@ -1,6 +1,6 @@
 package hrlovecraft;
 
-public class Person {
+public abstract class Person {
     private String name;
     private Contact contactInfo;
 
@@ -9,9 +9,9 @@ public class Person {
         this.contactInfo = null;
     }
 
-    public Person(String name, Contact contactInfo) {
+    public Person(String name,String addr, String city, String state, String phone, String email) {
         this.name = name;
-        this.contactInfo = contactInfo;
+        this.contactInfo = new Contact(addr, city, State.valueOf(state.toUpperCase()), phone, email);
     }
 
     public String getName() {

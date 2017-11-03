@@ -18,11 +18,11 @@ public class Console {
         int choice = Integer.parseInt(getStringInput());
         switch (choice) {
             case 1 :
-                Menu.getMenu().hireNewEmployee();
+                //Menu.getMenu().hireNewEmployee();
                 break;
 
             case 2 :
-                Menu.getMenu().manageCurrentEmployees();
+                //Menu.getMenu().manageCurrentEmployees();
                 int userChoice = Integer.parseInt(getStringInput());
                 switch (userChoice){
                     case 1 :
@@ -76,8 +76,8 @@ public class Console {
         int phoneNumber = scanner.nextInt();
         System.out.println("Please enter the employee's email address.");
         String email = scanner.nextLine();
-        Contact contactInfo = new Contact(streetAddress, city, state1, phoneNumber, email);
-        Person person = new Person(name, contactInfo);
+       // Contact contactInfo = new Contact(streetAddress, city, state1, phoneNumber, email);
+        //Person person = new Person(name, contactInfo);
     }
 
 

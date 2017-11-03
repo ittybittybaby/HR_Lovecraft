@@ -5,8 +5,8 @@ import org.junit.Test;
 
 public class PersonTest {
 
-    @Test
-    public void personConstructorTest_Empty() {
+    //@Test
+/*    public void personConstructorTest_Empty() {
         Person person = new Person();
         String nameExpected = null;
         String nameActual = person.getName();
@@ -59,4 +59,4 @@ public class PersonTest {
         person.setContactInfo(contactExpected);
         Contact contactActual = person.getContactInfo();
         Assert.assertEquals(contactExpected, contactActual);
-    }}
+    }/**/}

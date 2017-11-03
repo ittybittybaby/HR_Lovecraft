@@ -10,7 +10,7 @@ public class EmployeeWarehouseTest {
     EmployeeWarehouse eWH= EmployeeWarehouse.getInstance();
     @Test
     public void addTest() throws Exception {
-        Employee expected=new Employee(44);
+        Employee expected=new Employee(44,"tom","123 st", "newark", "delaware", "2222222222", "zip@zippity.com");
         eWH.add(expected);
         Employee actual =eWH.get(44);
 
@@ -19,6 +19,7 @@ public class EmployeeWarehouseTest {
 
     @Test
     public void getTest() throws Exception {
+
 
 
     }

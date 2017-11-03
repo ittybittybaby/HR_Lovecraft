@@ -33,7 +33,7 @@ public class TimeCard {
     }
 
     public double getHoursWorked(){
-       return (getTimeOut().get(MINUTE_OF_DAY)-getTimeIn().get(MINUTE_OF_DAY))/60;
+       return (getTimeOut().get(MINUTE_OF_DAY)-getTimeIn().get(MINUTE_OF_DAY))/60.0;
     }
 
     public String toString(){

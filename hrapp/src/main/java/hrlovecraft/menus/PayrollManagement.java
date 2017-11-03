@@ -22,10 +22,9 @@ public class PayrollManagement extends Menu {
                 MainMenu.getInstance().display();
                 break;
             case BACK:
+                EmployeeManagement.getInstance().display();
                 break;
-
         }
-
     }
 
     private void createPaystub() {

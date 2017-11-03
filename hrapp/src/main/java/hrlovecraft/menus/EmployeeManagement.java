@@ -3,7 +3,7 @@ package hrlovecraft.menus;
 public class EmployeeManagement extends Menu {
     private static final EmployeeManagement INSTANCE=new EmployeeManagement();
 
-    public enum EmpManagement{UPDATE_EMPLOYEE_INFORMATION, EMPLOYEE_REPORTS, TERMINATE_EMPLOYEE, MAIN, BACK}
+    public enum EmpManagement{UPDATE_EMPLOYEE_INFORMATION, PAYROLL_MANAGEMENT, TERMINATE_EMPLOYEE, MAIN, BACK}
 
     private EmployeeManagement(){
         super(EmpManagement.values());
@@ -12,20 +12,26 @@ public class EmployeeManagement extends Menu {
     @Override
     public void userSelect(String userInput) {
         switch ( EmpManagement.valueOf(userInput)){
-            case UPDATE_EMPLOYEE_INFORMATION: updateInformation();
+            case UPDATE_EMPLOYEE_INFORMATION:
+                updateInformation();
                 break;
-            case EMPLOYEE_REPORTS: employeeReports();
+            case PAYROLL_MANAGEMENT:
+                payrollManagement();
                 break;
             case TERMINATE_EMPLOYEE:
                 break;
-            case BACK: MainMenu.getInstance().display();
-            break;
+            case BACK:
+                break;
+            case MAIN:
+                MainMenu.getInstance().display();
+                break;
+
 
         }
 
     }
 
-    private void employeeReports() {
+    private void payrollManagement() {
     }
 
     private void updateInformation() {

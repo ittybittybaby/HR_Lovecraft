@@ -18,7 +18,7 @@ public class EmployeeManagement extends Menu {
                 updateInformation();
                 break;
             case PAYROLL_MANAGEMENT:
-                PayrollManagement.getInstance().display();
+                payrollManagement();
                 break;
             case TIMECARD: timecard();
                 break;

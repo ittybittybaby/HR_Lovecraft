@@ -56,21 +56,18 @@ public class CreateNewEmployee {
         employee[1] = in.nextLine().trim();
         System.out.print("Enter the city: ");
         employee[2] = in.nextLine().trim();
-        getState();
-    }
-
-    public void getState(){
+        boolean flag=false;
+        while(!flag)
         try {
             System.out.print("Enter the State: ");
             String state = in.nextLine().trim().toUpperCase();
             State.valueOf(state);
             employee[3] = state;
+            flag=true;
         } catch (Exception ex) {
             System.out.println("Invalid State.");
-            getState();
         }
     }
-
 
 
     public void name() {

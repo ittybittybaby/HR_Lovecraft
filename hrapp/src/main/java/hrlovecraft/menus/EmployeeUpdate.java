@@ -2,11 +2,14 @@ package hrlovecraft.menus;
 
 import hrlovecraft.*;
 
+import java.util.Scanner;
+
+
 public class EmployeeUpdate extends Menu {
 
     private static final EmployeeUpdate INSTANCE = new EmployeeUpdate();
 
-
+    private Scanner in = new Scanner(System.in);
 
     public enum UpdateSelections {NAME, ADDRESS, PHONE, EMAIL, DEPARTMENT, POSITION, SALARY, BENEFITS, BACK, MAIN}
 
@@ -19,7 +22,7 @@ public class EmployeeUpdate extends Menu {
         switch (UpdateSelections.valueOf(userInput)){
             case NAME: updateName();
             break;
-            case ADDRESS:// updateAddress();
+            case ADDRESS: updateAddress();
             break;
             case PHONE: updatePhone();
             break;
@@ -49,6 +52,7 @@ public class EmployeeUpdate extends Menu {
         System.out.println("Enter the new salary range for the employee: ");
         String salaryRange=in.nextLine();
         employee.setSalaryTier(SalaryTier.valueOf(salaryRange));
+        System.out.println("The employee's salary tier has been updated to: "+employee.getSalaryTier());
         EmployeeUpdate.getINSTANCE().display();
     }
 
@@ -56,6 +60,7 @@ public class EmployeeUpdate extends Menu {
         System.out.println("Enter the new position name for the employee: ");
         String position=in.nextLine();
         employee.setPosition(Position.valueOf(position));
+        System.out.println("The employee's new role is: "+employee.getPosition());
         EmployeeUpdate.getINSTANCE().display();
     }
 
@@ -63,6 +68,7 @@ public class EmployeeUpdate extends Menu {
         System.out.println("Enter the new department name for the employee: ");
         String dept=in.nextLine();
         employee.setDepartment(Department.valueOf(dept));
+        System.out.println("The employee now works in: "+ employee.getDepartment());
         EmployeeUpdate.getINSTANCE().display();
     }
 
@@ -70,6 +76,7 @@ public class EmployeeUpdate extends Menu {
         System.out.println("Enter the new email address number for the employee: ");
         String emailAddr=in.nextLine();
         employee.getContactInfo().setEmail(emailAddr);
+        System.out.println("The email address has been updated to: "+employee.getContactInfo().getEmail());
         EmployeeUpdate.getINSTANCE().display();
     }
 
@@ -77,6 +84,7 @@ public class EmployeeUpdate extends Menu {
         System.out.println("Enter the new phone number for the employee: ");
         long phoneNum=in.nextLong();
         employee.getContactInfo().setPhoneNumber(phoneNum);
+        System.out.println("The phone number has been updated to: "+employee.getContactInfo().getPhoneNumber());
         EmployeeUpdate.getINSTANCE().display();
     }
 
@@ -107,6 +115,7 @@ public class EmployeeUpdate extends Menu {
         System.out.println("Enter the new name for the employee: ");
         String name=in.nextLine();
         employee.setName(name);
+        System.out.println("The employee's name has been updated to "+employee.getName());
         EmployeeUpdate.getINSTANCE().display();
     }
 

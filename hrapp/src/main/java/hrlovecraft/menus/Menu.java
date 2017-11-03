@@ -8,7 +8,7 @@ import java.util.Scanner;
 public abstract class Menu {
     EmployeeWarehouse eWH = EmployeeWarehouse.getInstance();
 
-    Employee employee;
+    static Employee employee;
 
     private final Enum[] enumerations;
 
@@ -17,6 +17,7 @@ public abstract class Menu {
     public Menu (Enum[] enumerations, String menuMessage) {
         this.enumerations = enumerations;
         this.menuMessage =  menuMessage;
+        eWH.add("bob", "123 fake st", "wilminton", "DELAWARE", "5559991234", "none@zip.com");
     }
 
     Scanner in = new Scanner(System.in);

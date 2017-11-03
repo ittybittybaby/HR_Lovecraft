@@ -71,6 +71,14 @@ public class Employee extends Person {
         TCW.add(timeCard);
     }
 
+    public Position getPosition(){
+        return position;
+    }
+
+    public SalaryTier getSalaryTier(){
+        return salaryTier;
+    }
+
 
 
 }

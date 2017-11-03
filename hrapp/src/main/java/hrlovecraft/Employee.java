@@ -66,5 +66,7 @@ public class Employee extends Person {
         this.benefits = benefits;
     }
 
+    public void setPosition(Position position){this.position=position;}
+
 
 }

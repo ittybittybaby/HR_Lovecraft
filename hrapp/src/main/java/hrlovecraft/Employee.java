@@ -65,5 +65,9 @@ public class Employee extends Person {
         this.benefits = benefits;
     }
 
+    public void submitTimeCard(TimeCard timeCard){
+        TCW.add(timeCard);
+    }
+
 
 }

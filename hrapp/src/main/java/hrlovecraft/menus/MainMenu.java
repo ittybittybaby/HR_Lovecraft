@@ -20,6 +20,7 @@ public class MainMenu extends Menu {
 
     @Override
     public void userSelect(String userInput) {
+
         try {
             switch (MainSelections.valueOf(userInput)) {
                 case ADD_NEW_HIRE:
@@ -38,6 +39,7 @@ public class MainMenu extends Menu {
         catch (Exception e) {
             this.setMenuMessage("");
             System.out.println("\nInvalid main menu input. Please enter again.\n");
+
         }
     }
 

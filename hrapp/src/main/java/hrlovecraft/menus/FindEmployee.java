@@ -11,7 +11,8 @@ public class FindEmployee extends Menu {
     public enum FindEmployeeSelections {BY_ID, BY_DEPT, MAIN, QUIT}
 
     private FindEmployee() {
-        super(FindEmployeeSelections.values());
+        super(FindEmployeeSelections.values(), "\n\n Add New Hire. What information would you like to input" +
+                " on the following employee?");
     }
 
     @Override

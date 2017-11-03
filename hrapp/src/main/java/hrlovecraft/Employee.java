@@ -18,7 +18,7 @@ public class Employee extends Person {
     private TimeCardWarehouse TCW = TimeCardWarehouse.getInstance();
     private PaystubWarehouse PSW = PaystubWarehouse.getInstance();
 
-    Employee(long employeeId, String name,String addr, String city, String state, String phone, String email){
+    Employee(long employeeId, String name, String addr, String city, String state, String phone, String email){
         super(name, addr, city, state, phone, email);
         this.employeeId=employeeId;
         hireDate= LocalDateTime.now();

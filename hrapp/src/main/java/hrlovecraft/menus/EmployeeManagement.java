@@ -5,7 +5,7 @@ import com.oracle.deploy.update.UpdateCheck;
 public class EmployeeManagement extends Menu {
     private static final EmployeeManagement INSTANCE=new EmployeeManagement();
 
-    public enum EmpManagement{UPDATE, REPORTS, TERMINATE, MAIN, BACK}
+    public enum EmpManagement{UPDATE, PAYROLL_MANAGEMENT, TERMINATE, TIMECARD, MAIN, BACK}
 
     private EmployeeManagement(){
         super(EmpManagement.values(), "placeholder message");
@@ -14,20 +14,21 @@ public class EmployeeManagement extends Menu {
     @Override
     public void userSelect(String userInput) {
         switch ( EmpManagement.valueOf(userInput)){
-            case UPDATE: updateInformation();
+            case UPDATE:
+                updateInformation();
                 break;
-            case REPORTS: employeeReports();
+            case PAYROLL_MANAGEMENT:
+                PayrollManagement.getInstance().display();
                 break;
-            case TERMINATE:
+            case TIMECARD: timecard();
                 break;
-            case BACK: MainMenu.getInstance().display();
+            case MAIN: MainMenu.getInstance().display();
             break;
             default: display();
         }
-
     }
 
-    private void employeeReports() {
+    private void payrollManagement() {
     }
 
     private void updateInformation() {
@@ -36,5 +37,9 @@ public class EmployeeManagement extends Menu {
 
     public static EmployeeManagement getInstance(){
         return INSTANCE;
+    }
+
+    public void timecard(){
+        TimeCardManager.getInstance().display();
     }
 }

@@ -15,7 +15,7 @@ public abstract class Menu {
     private String menuMessage;
 
     public Menu (Enum[] enumerations, String menuMessage) {
-        this.enumerations=enumerations;
+        this.enumerations = enumerations;
         this.menuMessage =  menuMessage;
     }
 
@@ -39,7 +39,7 @@ public abstract class Menu {
             return "" + this.enumerations[output];
         }
         catch (Exception e) {
-            System.out.println("menuToInt exception occured.");
+            //System.err.println("\nInvalid menu option. Please try again.");
         }
         return null;
     }

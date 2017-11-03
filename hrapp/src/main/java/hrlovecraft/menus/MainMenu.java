@@ -20,7 +20,6 @@ public class MainMenu extends Menu {
 
     @Override
     public void userSelect(String userInput) {
-
         try {
             switch (MainSelections.valueOf(userInput)) {
                 case ADD_NEW_HIRE:
@@ -32,14 +31,11 @@ public class MainMenu extends Menu {
                 case QUIT:
                     System.exit(0);
                     break;
-                default:
-                    display();
             }
+            this.setMenuMessage("Welcome to the Main Menu. Please select an option.");
         }
         catch (Exception e) {
-            this.setMenuMessage("");
-            System.out.println("\nInvalid main menu input. Please enter again.\n");
-
+            this.setMenuMessage("\nInvalid main menu input. Please enter again.\n");
         }
     }
 
@@ -48,8 +44,12 @@ public class MainMenu extends Menu {
     }
 
     private void newHire() {
-        CreateNewEmployee.getInstance().display();
-
+        CreateNewEmployee createNewEmployee = CreateNewEmployee.getInstance();
+        createNewEmployee.name();
+        createNewEmployee.address();
+        createNewEmployee.phone();
+        createNewEmployee.email();
+        createNewEmployee.createEmployee();
     }
 
     public static MainMenu getInstance() {

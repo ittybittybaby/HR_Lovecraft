@@ -10,7 +10,7 @@ public class ContactTest {
         String address = "9 Musket lane";
         String city = "Darien";
         State state = State.CONNECTICUT;
-        int phoneNumber = 203655780;
+        String phoneNumber = "203655780";
         String email = "Basgolfer@gmail.com";
 
         Contact contact = new Contact(address, city, state, phoneNumber, email);
@@ -18,13 +18,13 @@ public class ContactTest {
         String streetAddressExpected = address;
         String cityExpected = city;
         State stateExpected = state;
-        int phoneNumberExpected = phoneNumber;
+        long phoneNumberExpected = Long.parseLong(phoneNumber);
         String emailExpected = email;
 
         String streetAddressActual = contact.getStreetAddress();
         String cityActual = contact.getCity();
         State stateActual = contact.getState();
-        int phoneNumberActual = contact.getPhoneNumber();
+        long phoneNumberActual = contact.getPhoneNumber();
         String emailActual = contact.getEmail();
 
         Assert.assertEquals(streetAddressExpected, streetAddressActual);
@@ -71,7 +71,7 @@ public class ContactTest {
         Contact contact = new Contact();
         int phoneNumberExpected = 2036556780;
         contact.setPhoneNumber(phoneNumberExpected);
-        int phoneNumberActual = contact.getPhoneNumber();
+        long phoneNumberActual = contact.getPhoneNumber();
 
         Assert.assertEquals(phoneNumberExpected, phoneNumberActual);
     }

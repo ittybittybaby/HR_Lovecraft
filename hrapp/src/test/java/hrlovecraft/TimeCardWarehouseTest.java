@@ -14,10 +14,11 @@ public class TimeCardWarehouseTest {
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM-dd-yyyy HH:mm");
     @Test
     public void addTest() throws Exception {
-        int expected =tCW.getSize()+1;
 
-        tCW.add(new TimeCard("10-12-2017-1045"));
-        int actual= tCW.getSize();
+        TimeCard expected = new TimeCard("10-12-2017-1045");
+
+        tCW.add(expected);
+        TimeCard actual= tCW.get("10-12-2017");
 
         Assert.assertEquals(expected,actual);
     }

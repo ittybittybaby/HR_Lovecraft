@@ -4,7 +4,7 @@ public class Contact {
     private String streetAddress;
     private String city;
     private State state;
-    private int phoneNumber;
+    private long phoneNumber;
     private String email;
 
     public Contact() {
@@ -15,11 +15,11 @@ public class Contact {
         this.email = null;
     }
 
-    public Contact(String streetAddress, String city, State state, int phoneNumber, String email) {
+    public Contact(String streetAddress, String city, State state, String phoneNumber, String email) {
         this.streetAddress = streetAddress;
         this.city = city;
         this.state = state;
-        this.phoneNumber = phoneNumber;
+        this.phoneNumber = Long.parseLong(phoneNumber);
         this.email = email;
     }
 
@@ -47,7 +47,7 @@ public class Contact {
         this.state = state;
     }
 
-    public int getPhoneNumber() {
+    public long getPhoneNumber() {
         return phoneNumber;
     }
 

@@ -6,7 +6,7 @@ import hrlovecraft.EmployeeWarehouse;
 
 public class CreateNewEmployee extends Menu{
 
-    private static final CreateNewEmployee INSTANCE=new CreateNewEmployee();
+    private static final CreateNewEmployee INSTANCE = new CreateNewEmployee();
 
     public enum NewEmployeeSelections{NAME, ADDRESS, PHONE, EMAIL, SUBMIT, CANCEL}
 

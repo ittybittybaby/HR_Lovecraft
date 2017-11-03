@@ -1,5 +1,7 @@
 package hrlovecraft.menus;
 
+import com.oracle.deploy.update.UpdateCheck;
+
 public class EmployeeManagement extends Menu {
     private static final EmployeeManagement INSTANCE=new EmployeeManagement();
 

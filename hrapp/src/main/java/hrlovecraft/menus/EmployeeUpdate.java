@@ -1,8 +1,6 @@
 package hrlovecraft.menus;
 
-import hrlovecraft.Department;
-import hrlovecraft.Position;
-import hrlovecraft.SalaryTier;
+import hrlovecraft.*;
 
 public class EmployeeUpdate extends Menu {
 
@@ -13,7 +11,7 @@ public class EmployeeUpdate extends Menu {
     public enum UpdateSelections {NAME, ADDRESS, PHONE, EMAIL, DEPARTMENT, POSITION, SALARY, BENEFITS, BACK, MAIN}
 
     private EmployeeUpdate() {
-        super(UpdateSelections.values());
+        super(UpdateSelections.values(),"");
     }
 
     @Override
@@ -43,6 +41,7 @@ public class EmployeeUpdate extends Menu {
     }
 
     private void updateBenefits() {
+
 
     }
 
@@ -81,12 +80,28 @@ public class EmployeeUpdate extends Menu {
         EmployeeUpdate.getINSTANCE().display();
     }
 
-    /*private void updateAddress() {
-        System.out.println("Enter the new address for the employee: ");
-        String streetAddress=in.nextLine();
-        employee. (streetAddress);
-        EmployeeUpdate.getINSTANCE().display();
-    }/**/
+    private void updateAddress() {
+        System.out.print("\nEnter the street address: ");
+        String addr=in.nextLine();
+        employee.getContactInfo().setStreetAddress(addr);
+        System.out.print("Enter the new city: ");
+        addr=in.nextLine();
+        employee.getContactInfo().setCity(addr);
+        boolean flag=false;
+        while(!flag){
+        try{
+            System.out.print("Enter the State: ");
+            addr=in.nextLine();
+            State state=State.valueOf(addr);
+            employee.getContactInfo().setState(state);
+            flag=true;
+        }catch (Exception e){
+            System.out.println("Invalid State Entered.");
+        }
+        }
+        System.out.println("Address Update Successful.");
+        EmployeeUpdate.INSTANCE.display();
+    }
 
     private void updateName() {
         System.out.println("Enter the new name for the employee: ");

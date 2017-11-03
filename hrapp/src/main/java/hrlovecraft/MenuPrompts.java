@@ -1,14 +1,14 @@
 package hrlovecraft;
 
-public class Menu {
+public class MenuPrompts {
 
-    private static Menu INSTANCE = new Menu();
+    private static MenuPrompts INSTANCE = new MenuPrompts();
 
-    public static Menu getMenu() {
+    public static MenuPrompts getMenu() {
         return INSTANCE;
     }
 
-    private Menu() {
+    private MenuPrompts() {
 
     }
 

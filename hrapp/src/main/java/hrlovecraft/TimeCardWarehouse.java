@@ -9,21 +9,7 @@ import java.util.Date;
 public class TimeCardWarehouse extends Warehouse<TimeCard> {
 
 
-    private static final TimeCardWarehouse INSTANCE=new TimeCardWarehouse();
-
     private ArrayList<TimeCard> timeCards=getList();
-
-    private TimeCardWarehouse(){
-        //delete loop after testing
-        for (int i=1; i<10; i++)
-
-            timeCards.add(new TimeCard("11-0"+i+"-2017-1345"));
-
-    }
-
-    public static TimeCardWarehouse getInstance(){
-        return INSTANCE;
-    }
 
 
     public void add(TimeCard card) {

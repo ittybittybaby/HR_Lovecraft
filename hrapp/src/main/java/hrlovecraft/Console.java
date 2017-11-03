@@ -18,7 +18,7 @@ public class Console {
         int choice = Integer.parseInt(getStringInput());
         switch (choice) {
             case 1 :
-                Menu.getMenu().hireNewEmployee();
+                Menu.getMenu().hireNewEmployeeMenu();
                 break;
 
             case 2 :
@@ -26,10 +26,6 @@ public class Console {
                 int userChoice = Integer.parseInt(getStringInput());
                 switch (userChoice){
                     case 1 :
-                        System.out.println("Please enter a Department name: ");
-                        break;
-
-                    case 2 :
                         System.out.println("Please enter a specific employee ID: ");
                         long employeeID = Long.parseLong(getStringInput());
                         break;

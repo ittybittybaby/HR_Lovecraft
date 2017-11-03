@@ -3,85 +3,82 @@ package hrlovecraft.menus;
 //import hrlovecraft.MenuPrompts;
 
 import hrlovecraft.EmployeeWarehouse;
+import hrlovecraft.State;
 
-public class CreateNewEmployee extends Menu{
+import java.util.Scanner;
 
-    private static final CreateNewEmployee INSTANCE=new CreateNewEmployee();
+public class CreateNewEmployee {
 
-    public enum NewEmployeeSelections {NAME, ADDRESS, PHONE, EMAIL, SUBMIT, CANCEL}
+    private Scanner in = new Scanner(System.in);
 
-    private CreateNewEmployee() {
-        super(NewEmployeeSelections.values(), "\nWhat information " +
-                "would you like to enter in about this employee?");
-    }
+    private static final CreateNewEmployee INSTANCE = new CreateNewEmployee();
+
+    private EmployeeWarehouse eWH = EmployeeWarehouse.getInstance();
+
     private String[] employee = new String [6];
 
-    @Override
-    public void userSelect(String userInput) {
-        try {
-            switch (NewEmployeeSelections.valueOf(userInput)) {
-                case NAME: name();
-                    break;
-                case ADDRESS: address();
-                    break;
-                case PHONE: phone();
-                    break;
-                case EMAIL: email();
-                    break;
-                case SUBMIT: createEmployee();
-                    break;
-                case CANCEL: cancel();
-                    break;
-                default:
-                    display();
-            }
-        }
-        catch (Exception e) {
-            System.out.println("\nInvalid employee input option. Please enter again.\n");
-        }
-
-
+    private CreateNewEmployee() {
 
     }
 
-    private void cancel() {
-        employee = new String[6];
-        MainMenu.getInstance().display();
-    }
-
-    private void createEmployee() {
+    public void createEmployee() {
         eWH.add(employee);
         System.out.println("\nEmployee added!");
         MainMenu.getInstance().display();
     }
 
-    private void email() {
-        System.out.print("\nEnter an email address: ");
-        employee[5]=in.nextLine();
+    public void email() {
+        System.out.print("Enter an email address: ");
+        String email = in.nextLine();
+        while (!email.contains("@")) {
+            System.out.print("\nPlease make sure your email address has an @ in it.\n\n");
+            System.out.print("Enter an email address: ");
+            email = in.nextLine();
+        }
+        employee[5] = email;
     }
 
-    private void phone() {
-        System.out.print("\nEnter a phone number: ");
-        employee[4]=in.nextLine();
+    public void phone() {
+
+        System.out.print("Enter a phone number: ");
+        String phoneNumber = in.nextLine();
+        while (!phoneNumber.matches("\\d{10}")) {
+            System.out.print("\nPlease make sure your phone number is 9 digits long.\n\n");
+            System.out.print("Enter a phone number: ");
+            phoneNumber = in.nextLine();
+        }
+        employee[4] = phoneNumber;
     }
 
-    private void address() {
-        System.out.print("\nEnter the street address: ");
-        employee[1]=in.nextLine();
+    public void address() {
+
+        System.out.print("Enter the street address: ");
+        employee[1] = in.nextLine().trim();
         System.out.print("Enter the city: ");
-        employee[2]=in.nextLine();
-        System.out.print("Enter the State: ");
-        employee[3]=in.nextLine();
-        INSTANCE.display();
+        employee[2] = in.nextLine().trim();
+        getState();
     }
 
-    private void name() {
-        System.out.print("\nEnter the new Employee's Name: ");
-        employee[0]=in.nextLine();
-        INSTANCE.display();
+    public void getState(){
+        try {
+            System.out.print("Enter the State: ");
+            String state = in.nextLine().trim().toUpperCase();
+            State.valueOf(state);
+            employee[3] = state;
+        } catch (Exception ex) {
+            System.out.println("Invalid State.");
+            getState();
+        }
     }
 
-    public static CreateNewEmployee getInstance(){
+
+
+    public void name() {
+        System.out.print("\nEnter the employee's name: ");
+        employee[0] = in.nextLine().trim();
+    }
+
+    public static CreateNewEmployee getInstance() {
         return INSTANCE;
     }
 }

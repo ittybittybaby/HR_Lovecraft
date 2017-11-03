@@ -6,7 +6,7 @@ import hrlovecraft.EmployeeWarehouse;
 import java.util.Scanner;
 
 public abstract class Menu {
-    EmployeeWarehouse eWH=EmployeeWarehouse.getInstance();
+    EmployeeWarehouse eWH = EmployeeWarehouse.getInstance();
 
     Employee employee;
 
@@ -15,11 +15,11 @@ public abstract class Menu {
     private String menuMessage;
 
     public Menu (Enum[] enumerations, String menuMessage) {
-        this.enumerations=enumerations;
+        this.enumerations = enumerations;
         this.menuMessage =  menuMessage;
     }
 
-    Scanner in=new Scanner(System.in);
+    Scanner in = new Scanner(System.in);
 
     public abstract void userSelect(String userInput);
 
@@ -39,7 +39,7 @@ public abstract class Menu {
             return "" + this.enumerations[output];
         }
         catch (Exception e) {
-            System.out.println("menuToInt exception occured.");
+            //System.err.println("\nInvalid menu option. Please try again.");
         }
         return null;
     }

@@ -9,7 +9,7 @@ public class TimeCardManager extends Menu {
     public enum TimeCardManagement{CREATE, UPDATE, VIEW, MAIN, BACK}
 
     private TimeCardManager(){
-        super(TimeCardManagement.values());
+        super(TimeCardManagement.values(), "test");
     }
 
     @Override

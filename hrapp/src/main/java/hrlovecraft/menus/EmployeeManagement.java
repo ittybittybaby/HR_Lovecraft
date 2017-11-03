@@ -3,7 +3,7 @@ package hrlovecraft.menus;
 public class EmployeeManagement extends Menu {
     private static final EmployeeManagement INSTANCE=new EmployeeManagement();
 
-    public enum EmpManagement{UPDATE, REPORTS, TERMINATE, MAIN, BACK}
+    public enum EmpManagement{UPDATE, REPORTS, TERMINATE, TIMCARD, MAIN, BACK}
 
     private EmployeeManagement(){
         super(EmpManagement.values(), "placeholder message");
@@ -15,6 +15,8 @@ public class EmployeeManagement extends Menu {
             case UPDATE: updateInformation();
                 break;
             case REPORTS: employeeReports();
+                break;
+            case TIMCARD: timecard();
                 break;
             case TERMINATE:
                 break;
@@ -33,5 +35,9 @@ public class EmployeeManagement extends Menu {
 
     public static EmployeeManagement getInstance(){
         return INSTANCE;
+    }
+
+    public void timecard(){
+        TimeCardManager.getInstance().display();
     }
 }

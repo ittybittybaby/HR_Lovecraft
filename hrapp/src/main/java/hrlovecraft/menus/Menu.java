@@ -24,13 +24,13 @@ public abstract class Menu {
 
     public abstract void userSelect(String userInput);
 
-    public void display(){
+    public void display(){ //altered to allow back 1 menu after update, need to refactor
         String userInput="";
         do{
             userInput=getUserInput();
-            userSelect(menuToInt(userInput.toUpperCase()));
-        }while (!"quit".equalsIgnoreCase(userInput));
-        System.out.println("exiting..");
+            if(!"back".equalsIgnoreCase(userInput))
+                userSelect(menuToInt(userInput.toUpperCase()));
+        }while (!"back".equalsIgnoreCase(userInput));
     }
 
     public String menuToInt(String input) {

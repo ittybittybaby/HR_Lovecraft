@@ -1,14 +1,15 @@
 package hrlovecraft.menus;
 
-import com.oracle.deploy.update.UpdateCheck;
+import hrlovecraft.Employee;
 
 public class EmployeeManagement extends Menu {
-    private static final EmployeeManagement INSTANCE=new EmployeeManagement();
 
-    public enum EmpManagement{UPDATE, PAYROLL_MANAGEMENT, TERMINATE, TIMECARD, MAIN, BACK}
+    public enum EmpManagement{UPDATE, PAYROLL_MANAGEMENT, TERMINATE, TIMECARD, MAIN, }
 
-    private EmployeeManagement(){
+    private Employee employee;
+    public EmployeeManagement(Employee employee){
         super(EmpManagement.values(), "placeholder message");
+        this.employee=employee;
     }
 
     @Override
@@ -23,8 +24,9 @@ public class EmployeeManagement extends Menu {
             case TIMECARD: timecard();
                 break;
             case MAIN: MainMenu.getInstance().display();
-            break;
-            default: display();
+                break;
+            default:
+                System.out.println("Enter New Selection: ");
         }
     }
 
@@ -33,12 +35,8 @@ public class EmployeeManagement extends Menu {
     }
 
     private void updateInformation() {
-        EmployeeUpdate.getINSTANCE().display();
+        new EmployeeUpdateos(employee).display();
 
-    }
-
-    public static EmployeeManagement getInstance(){
-        return INSTANCE;
     }
 
     public void timecard(){

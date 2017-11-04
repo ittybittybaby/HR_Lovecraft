@@ -9,10 +9,12 @@ public class FindEmployee extends Menu {
 
 
 
-    public enum FindEmployeeSelections {BY_ID, BY_DEPT, MAIN, BACK}
+    public enum FindEmployeeSelections {BY_ID, BY_DEPT, MAIN}
 
     private FindEmployee() {
-        super(FindEmployeeSelections.values(), "\n\nSearch for employee. How would you like to search for an employee?");
+        super(FindEmployeeSelections.values(), "\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n" +
+                                                 "What would you like to look Employee up by?\n" +
+                                                 "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
     }
 
 //    private void findByDepartment() {
@@ -28,8 +30,7 @@ public class FindEmployee extends Menu {
                 findById();
                 break;
             case BY_DEPT:
-                //findByDepartment();
-                findById(); // Placeholder option
+                //Find by department method
                 break;
             case MAIN:
                 MainMenu.getInstance().display();
@@ -38,15 +39,17 @@ public class FindEmployee extends Menu {
     }
 
     private void findById() {
-        System.out.println("Enter the Employee's ID");
-        int employeeId=in.nextInt();
+        System.out.println("Enter the Employee's ID: ");
+        int employeeId = in.nextInt();
 
-        employee=EmployeeWarehouse.getInstance().get(employeeId);
-        if (employee!=null){
-            System.out.println("Found "+employee.getName());
-            EmployeeManagement.getInstance().display();}
-        else System.out.println("Not Found");MainMenu.getInstance().display();
-
+            employee = EmployeeWarehouse.getInstance().get(employeeId);
+            if (employee != null) {
+                System.out.println("\n*** Found " + employee.getName() + " ***\n");
+                EmployeeManagement.getInstance().display();
+            } else {
+                System.out.println("Not Found");
+                FindEmployee.getInstance().display();
+            }
     }
 
 

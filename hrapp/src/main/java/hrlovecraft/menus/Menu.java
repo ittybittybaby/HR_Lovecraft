@@ -24,13 +24,15 @@ public abstract class Menu {
 
     public abstract void userSelect(String userInput);
 
-    public void display(){ //altered to allow back 1 menu after update, need to refactor
+
+    public void display(){ //need to refactor
         String userInput="";
         do{
             userInput=getUserInput();
             if(!"back".equalsIgnoreCase(userInput))
                 userSelect(menuToInt(userInput.toUpperCase()));
         }while (!"back".equalsIgnoreCase(userInput));
+
     }
 
     public String menuToInt(String input) {
@@ -49,7 +51,7 @@ public abstract class Menu {
         int count = 0;
         printMenuMessage();
 
-        for (Enum e:enumerations) {
+        for(Enum e:enumerations) {
             count++;
             System.out.println(count + ") " + e );
         }

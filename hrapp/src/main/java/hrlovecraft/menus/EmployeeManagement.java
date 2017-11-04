@@ -6,6 +6,7 @@ public class EmployeeManagement extends Menu {
 
     public enum EmpManagement{VIEW, UPDATE, PAYROLL_MANAGEMENT, TERMINATE, TIMECARD, MAIN, BACK}
 
+
     private Employee employee;
     public EmployeeManagement(Employee employee){
         super(EmpManagement.values(), "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n" +
@@ -13,11 +14,14 @@ public class EmployeeManagement extends Menu {
                 "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n" +
                 "Name: " + employee.getName() + "    " + "ID: " + employee.getEmployeeId());
         this.employee=employee;
+
     }
 
     @Override
     public void userSelect(String userInput) {
-        switch ( EmpManagement.valueOf(userInput)){
+
+        switch (EmpManagement.valueOf(userInput)){
+
             case VIEW:
                 // method to print out all of an employee's info
                 break;
@@ -38,6 +42,9 @@ public class EmployeeManagement extends Menu {
             case BACK:
                 FindEmployee.getInstance().display();
                 break;
+            default:
+                display();
+
         }
     }
 

@@ -17,9 +17,7 @@ public class CreateNewEmployee {
 
     private String[] employee = new String [6];
 
-    private CreateNewEmployee() {
-
-    }
+    private CreateNewEmployee() {}
 
     public void createEmployee() {
         eWH.add(employee);
@@ -43,7 +41,7 @@ public class CreateNewEmployee {
         System.out.print("Enter a phone number: ");
         String phoneNumber = in.nextLine();
         while (!phoneNumber.matches("\\d{10}")) {
-            System.out.print("\nPlease make sure your phone number is 9 digits long.\n\n");
+            System.out.print("\nPlease make sure your phone number is 10 digits long.\n\n");
             System.out.print("Enter a phone number: ");
             phoneNumber = in.nextLine();
         }

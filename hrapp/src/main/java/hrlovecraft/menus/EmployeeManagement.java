@@ -53,7 +53,7 @@ public class EmployeeManagement extends Menu {
     }
 
     private void updateInformation() {
-        new EmployeeUpdateos(employee).display();
+        new EmployeeUpdate(employee).display();
 
     }
 

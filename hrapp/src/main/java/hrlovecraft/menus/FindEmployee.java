@@ -1,5 +1,6 @@
 package hrlovecraft.menus;
 
+import hrlovecraft.Department;
 import hrlovecraft.Employee;
 import hrlovecraft.EmployeeWarehouse;
 
@@ -15,6 +16,12 @@ public class FindEmployee extends Menu {
                                                  "What would you like to look Employee up by?\n" +
                                                  "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
     }
+
+//    private void findByDepartment() {
+//
+//    }
+
+
 
     @Override
     public void userSelect(String userInput) {
@@ -44,6 +51,8 @@ public class FindEmployee extends Menu {
                 FindEmployee.getInstance().display();
             }
     }
+
+
 
     public static FindEmployee getInstance(){
         return INSTANCE;

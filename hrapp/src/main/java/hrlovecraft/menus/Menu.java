@@ -25,11 +25,11 @@ public abstract class Menu {
     public abstract void userSelect(String userInput);
 
     public void display(){
-        String userInput="";
-        do{
-            userInput=getUserInput();
+        String userInput;
+        do {
+            userInput = getUserInput();
             userSelect(menuToInt(userInput.toUpperCase()));
-        }while (!"quit".equalsIgnoreCase(userInput));
+        } while (!"quit".equalsIgnoreCase(userInput));
         System.out.println("exiting..");
     }
 
@@ -49,7 +49,7 @@ public abstract class Menu {
         int count = 0;
         printMenuMessage();
 
-        for (Enum e:enumerations) {
+        for(Enum e:enumerations) {
             count++;
             System.out.println(count + ") " + e );
         }

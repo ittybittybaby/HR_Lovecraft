@@ -11,6 +11,7 @@
 hrapp.iml
 pom.xml
 ~/target/
+hrapp/target/*
 
 # Sensitive or high-churn files:
 .idea/**/dataSources/

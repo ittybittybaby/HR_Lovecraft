@@ -10,11 +10,9 @@ public class MainMenu extends Menu {
     public enum MainSelections {ADD_NEW_HIRE, EMPLOYEE_MANAGEMENT, QUIT}
 
     private MainMenu() {
-        super(MainSelections.values(),  "\n*****************************\n" +
-                "Welcome to the HR application\n" +
-                "*****************************\n\n" +
-                "What would you like to do today\n" +
-                "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+        super(MainSelections.values(), "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n" +
+                                       "What would you like to do today\n" +
+                                       "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 
     }
 
@@ -26,7 +24,7 @@ public class MainMenu extends Menu {
                     newHire();
                     break;
                 case EMPLOYEE_MANAGEMENT:
-                    employeeManagement();
+                    findEmployee();
                     break;
                 case QUIT:
                     System.exit(0);
@@ -34,12 +32,13 @@ public class MainMenu extends Menu {
             }
             this.setMenuMessage("Welcome to the Main Menu. Please select an option.");
         }
+        // After new hire is added this exception message appears
         catch (Exception e) {
             this.setMenuMessage("\nInvalid main menu input. Please enter again.\n");
         }
     }
 
-    private void employeeManagement() {
+    private void findEmployee() {
         FindEmployee.getInstance().display();
     }
 

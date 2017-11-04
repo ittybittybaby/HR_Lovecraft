@@ -17,9 +17,7 @@ public class CreateNewEmployee {
 
     private String[] employee = new String [6];
 
-    private CreateNewEmployee() {
-
-    }
+    private CreateNewEmployee() {}
 
     public void createEmployee() {
         eWH.add(employee);

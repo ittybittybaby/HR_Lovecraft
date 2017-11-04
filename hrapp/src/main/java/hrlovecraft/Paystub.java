@@ -23,12 +23,13 @@ public class Paystub {
     }
 
 
-    // need method to calculateWage() double
-    public double calculateWage() {
-        // do something to calculate the amount the
-        // employee would be paid.
-        return amountPaid;
-    }
+//    public double calculateWage(Employee employee) {
+//        int hours = employee.;
+//        for(int i = 0; i < ) {
+//
+//        }
+//        return amountPaid;
+//    }
 
     public LocalDateTime getPayPeriodStartDate(){
         return payPeriodStartDate;

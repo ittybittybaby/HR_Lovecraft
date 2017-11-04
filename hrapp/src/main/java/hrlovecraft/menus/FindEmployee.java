@@ -1,5 +1,6 @@
 package hrlovecraft.menus;
 
+import hrlovecraft.Department;
 import hrlovecraft.Employee;
 import hrlovecraft.EmployeeWarehouse;
 
@@ -8,18 +9,31 @@ public class FindEmployee extends Menu {
 
 
 
-    public enum FindEmployeeSelections {BY_ID, BY_DEPT, MAIN, QUIT}
+    public enum FindEmployeeSelections {BY_ID, BY_DEPT, MAIN, BACK}
 
     private FindEmployee() {
-        super(FindEmployeeSelections.values(), "\n\n Add New Hire. What information would you like to input" +
-                " on the following employee?");
+        super(FindEmployeeSelections.values(), "\n\nSearch for employee. How would you like to search for an employee?");
     }
+
+//    private void findByDepartment() {
+//
+//    }
+
+
 
     @Override
     public void userSelect(String userInput) {
         switch(FindEmployeeSelections.valueOf(userInput)){
-            case BY_ID: findById();
-            break;
+            case BY_ID:
+                findById();
+                break;
+            case BY_DEPT:
+                //findByDepartment();
+                findById(); // Placeholder option
+                break;
+            case MAIN:
+                MainMenu.getInstance().display();
+                break;
         }
     }
 
@@ -34,6 +48,8 @@ public class FindEmployee extends Menu {
         else System.out.println("Not Found");MainMenu.getInstance().display();
 
     }
+
+
 
     public static FindEmployee getInstance(){
         return INSTANCE;

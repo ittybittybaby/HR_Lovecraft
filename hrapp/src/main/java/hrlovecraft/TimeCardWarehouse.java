@@ -9,7 +9,7 @@ import java.util.Date;
 public class TimeCardWarehouse extends Warehouse<TimeCard> {
 
 
-    private ArrayList<TimeCard> timeCards=getList();
+    private ArrayList<TimeCard> timeCards = getList();
 
 
     public void add(TimeCard card) {
@@ -18,7 +18,7 @@ public class TimeCardWarehouse extends Warehouse<TimeCard> {
     }
 
     public TimeCard get(String date) {
-        for(TimeCard card :timeCards){
+        for(TimeCard card : timeCards){
             if(datetoString(card).equals(date))
                 return card;}
         return null;

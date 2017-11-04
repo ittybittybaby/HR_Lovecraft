@@ -35,7 +35,6 @@ public class FindEmployee extends Menu {
         System.out.println("Enter the Employee's ID: ");
         int employeeId = in.nextInt();
 
-        try {
             employee = EmployeeWarehouse.getInstance().get(employeeId);
             if (employee != null) {
                 System.out.println("\n*** Found " + employee.getName() + " ***\n");
@@ -44,10 +43,6 @@ public class FindEmployee extends Menu {
                 System.out.println("Not Found");
                 FindEmployee.getInstance().display();
             }
-        }
-        catch (Exception e) {
-            this.setMenuMessage("\nInvalid ID. Please enter again.\n");
-        }
     }
 
     public static FindEmployee getInstance(){

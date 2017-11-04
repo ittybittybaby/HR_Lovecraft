@@ -53,6 +53,15 @@ public class FindEmployee extends Menu {
     }
 
 
+        employee = EmployeeWarehouse.getInstance().get(employeeId);
+        if (employee != null) {
+            System.out.println("\n*** Found " + employee.getName() + " ***\n");
+            new EmployeeManagementos(employee).display();;
+        } else {
+            System.out.println("Not Found");
+            FindEmployee.getInstance().display();
+        }
+    }
 
     public static FindEmployee getInstance(){
         return INSTANCE;

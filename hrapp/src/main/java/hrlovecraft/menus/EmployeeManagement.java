@@ -1,22 +1,27 @@
 package hrlovecraft.menus;
 
-import com.oracle.deploy.update.UpdateCheck;
+import hrlovecraft.Employee;
 
 public class EmployeeManagement extends Menu {
-    private static final EmployeeManagement INSTANCE=new EmployeeManagement();
 
     public enum EmpManagement{VIEW, UPDATE, PAYROLL_MANAGEMENT, TERMINATE, TIMECARD, MAIN, BACK}
 
-    private EmployeeManagement(){
+
+    private Employee employee;
+    public EmployeeManagement(Employee employee){
         super(EmpManagement.values(), "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n" +
-                                      "What would you like to manage\n" +
-                                      "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n" +
-                                      "Name: " + employee.getName() + "    " + "ID: " + employee.getEmployeeId());
+                "What would you like to manage\n" +
+                "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n" +
+                "Name: " + employee.getName() + "    " + "ID: " + employee.getEmployeeId());
+        this.employee=employee;
+
     }
 
     @Override
     public void userSelect(String userInput) {
+
         switch (EmpManagement.valueOf(userInput)){
+
             case VIEW:
                 // method to print out all of an employee's info
                 break;
@@ -39,6 +44,7 @@ public class EmployeeManagement extends Menu {
                 break;
             default:
                 display();
+
         }
     }
 
@@ -47,12 +53,8 @@ public class EmployeeManagement extends Menu {
     }
 
     private void updateInformation() {
-        EmployeeUpdate.getINSTANCE().display();
+        new EmployeeUpdateos(employee).display();
 
-    }
-
-    public static EmployeeManagement getInstance(){
-        return INSTANCE;
     }
 
     public void timecard(){

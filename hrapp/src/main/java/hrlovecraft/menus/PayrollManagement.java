@@ -6,7 +6,10 @@ public class PayrollManagement extends Menu {
     public enum Payroll {CREATE_PAYSTUB, VIEW_PAY_PERIOD, MAIN, BACK}
 
     private PayrollManagement(){
-        super(Payroll.values(), "test message");
+        super(Payroll.values(), "~~~~~~~~~~~~~~~~~~~~~~~~~\n" +
+                                "What would you like to do\n" +
+                                "~~~~~~~~~~~~~~~~~~~~~~~~~\n" +
+                                "Name: " + employee.getName() + "    " + "ID: " + employee.getEmployeeId());
     }
 
     @Override

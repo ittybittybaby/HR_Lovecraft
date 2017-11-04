@@ -14,13 +14,9 @@ public class MenuPrompts {
 
 
     public void printWelcomeMessage() {
-        System.out.println("*****************************\n" +
-                           "Welcome to the HR application\n" +
-                           "*****************************\n\n" +
-                           "What would you like to do today\n" +
-                           "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n" +
-                           "1) Hire New Employee\n" +
-                           "2) Manage Current Employees\n");
+        System.out.println("\n*****************************\n" +
+                             "Welcome to the HR application\n" +
+                             "*****************************\n");
     }
 
     public void setEmployeeName(){

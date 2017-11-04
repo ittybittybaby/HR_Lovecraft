@@ -6,27 +6,32 @@ public class TimeCardManager extends Menu {
 
     private static final TimeCardManager INSTANCE=new TimeCardManager();
 
-    public enum TimeCardManagement{CREATE, UPDATE, VIEW, MAIN, BACK}
+    public enum TimeCardManagement{CREATE_TIMECARD, UPDATE_TIMECARD, VIEW_TIMECARD, MAIN, BACK}
 
     private TimeCardManager(){
-        super(TimeCardManagement.values(), "test");
+        super(TimeCardManagement.values(), "~~~~~~~~~~~~~~~~~~~~~~~~~\n" +
+                                           "What would you like to do\n" +
+                                           "~~~~~~~~~~~~~~~~~~~~~~~~~\n" +
+                                           "Name: " + employee.getName() + "    " + "ID: " + employee.getEmployeeId());
     }
 
     @Override
     public void userSelect(String userInput) {
         switch (TimeCardManagement.valueOf(userInput)) {
-            case CREATE:
+            case CREATE_TIMECARD:
                 createTimeCard();
                 break;
-            case UPDATE:
+            case UPDATE_TIMECARD:
                 updateTimeCard();
                 break;
-            case VIEW:
+            case VIEW_TIMECARD:
                 viewTimeCard();
                 break;
             case MAIN:
                 MainMenu.getInstance().display();
                 break;
+            case BACK:
+                EmployeeManagement.getInstance().display();
             default:
                 display();
         }

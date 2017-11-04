@@ -5,26 +5,39 @@ import com.oracle.deploy.update.UpdateCheck;
 public class EmployeeManagement extends Menu {
     private static final EmployeeManagement INSTANCE=new EmployeeManagement();
 
-    public enum EmpManagement{UPDATE, PAYROLL_MANAGEMENT, TERMINATE, TIMECARD, MAIN, BACK}
+    public enum EmpManagement{VIEW, UPDATE, PAYROLL_MANAGEMENT, TERMINATE, TIMECARD, MAIN, BACK}
 
     private EmployeeManagement(){
-        super(EmpManagement.values(), "placeholder message");
+        super(EmpManagement.values(), "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n" +
+                                      "What would you like to manage\n" +
+                                      "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n" +
+                                      "Name: " + employee.getName() + "    " + "ID: " + employee.getEmployeeId());
     }
 
     @Override
     public void userSelect(String userInput) {
-        switch ( EmpManagement.valueOf(userInput)){
+        switch (EmpManagement.valueOf(userInput)){
+            case VIEW:
+                // method to print out all of an employee's info
+                break;
             case UPDATE:
                 updateInformation();
                 break;
             case PAYROLL_MANAGEMENT:
                 payrollManagement();
                 break;
-            case TIMECARD: timecard();
+            case TERMINATE: // Create terminate method
                 break;
-            case MAIN: MainMenu.getInstance().display();
-            break;
-            default: display();
+            case TIMECARD:
+                timecard();
+                break;
+            case MAIN:
+                MainMenu.getInstance().display();
+                break;
+            case BACK:
+                FindEmployee.getInstance().display();
+            default:
+                display();
         }
     }
 

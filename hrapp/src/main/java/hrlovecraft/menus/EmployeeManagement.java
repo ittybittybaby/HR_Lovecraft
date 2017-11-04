@@ -4,29 +4,40 @@ import hrlovecraft.Employee;
 
 public class EmployeeManagement extends Menu {
 
-    public enum EmpManagement{UPDATE, PAYROLL_MANAGEMENT, TERMINATE, TIMECARD, MAIN, }
+    public enum EmpManagement{VIEW, UPDATE, PAYROLL_MANAGEMENT, TERMINATE, TIMECARD, MAIN, BACK}
 
     private Employee employee;
     public EmployeeManagement(Employee employee){
-        super(EmpManagement.values(), "placeholder message");
+        super(EmpManagement.values(), "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n" +
+                "What would you like to manage\n" +
+                "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n" +
+                "Name: " + employee.getName() + "    " + "ID: " + employee.getEmployeeId());
         this.employee=employee;
     }
 
     @Override
     public void userSelect(String userInput) {
         switch ( EmpManagement.valueOf(userInput)){
+            case VIEW:
+                // method to print out all of an employee's info
+                break;
             case UPDATE:
                 updateInformation();
                 break;
             case PAYROLL_MANAGEMENT:
                 payrollManagement();
                 break;
-            case TIMECARD: timecard();
+            case TERMINATE: // Create terminate method
                 break;
-            case MAIN: MainMenu.getInstance().display();
+            case TIMECARD:
+                timecard();
                 break;
-            default:
-                System.out.println("Enter New Selection: ");
+            case MAIN:
+                MainMenu.getInstance().display();
+                break;
+            case BACK:
+                FindEmployee.getInstance().display();
+                break;
         }
     }
 

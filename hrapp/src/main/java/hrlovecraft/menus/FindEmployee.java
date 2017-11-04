@@ -1,10 +1,12 @@
 package hrlovecraft.menus;
 
+import hrlovecraft.Department;
 import hrlovecraft.Employee;
 import hrlovecraft.EmployeeWarehouse;
 
 public class FindEmployee extends Menu {
     private static final FindEmployee INSTANCE = new FindEmployee();
+
 
 
 
@@ -16,14 +18,23 @@ public class FindEmployee extends Menu {
                                                  "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
     }
 
+//    private void findByDepartment() {
+//
+//    }
+
+
+
     @Override
     public void userSelect(String userInput) {
         switch(FindEmployeeSelections.valueOf(userInput)){
-            case BY_ID: findById();
+            case BY_ID: 
+                findById();
                 break;
-            case BY_DEPT: //Find by department method
+            case BY_DEPT: 
+                //Find by department method
                 break;
-            case MAIN: MainMenu.getInstance().display();
+            case MAIN: 
+                MainMenu.getInstance().display();
                 break;
         }
     }
@@ -46,6 +57,8 @@ public class FindEmployee extends Menu {
             this.setMenuMessage("\nInvalid ID. Please enter again.\n");
         }
     }
+
+
 
     public static FindEmployee getInstance(){
         return INSTANCE;

@@ -36,6 +36,7 @@ public class EmployeeManagement extends Menu {
                 break;
             case BACK:
                 FindEmployee.getInstance().display();
+                break;
             default:
                 display();
         }

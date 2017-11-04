@@ -19,11 +19,14 @@ public class FindEmployee extends Menu {
     @Override
     public void userSelect(String userInput) {
         switch(FindEmployeeSelections.valueOf(userInput)){
-            case BY_ID: findById();
+            case BY_ID:
+                findById();
                 break;
-            case BY_DEPT: //Find by department method
+            case BY_DEPT:
+                //Find by department method
                 break;
-            case MAIN: MainMenu.getInstance().display();
+            case MAIN:
+                MainMenu.getInstance().display();
                 break;
         }
     }

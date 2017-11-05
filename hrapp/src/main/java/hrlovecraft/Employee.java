@@ -85,7 +85,7 @@ public class Employee extends Person {
         return salaryTier;
     }
 
-    public String[] printAllPayStubs(){
+    public String[] getAllPaystubRecords(){
         String[] paystubList = new String[PSW.getSize()];
         ArrayList<Paystub> paystubs = PSW.getList();
         for(int i = 0; i < paystubs.size(); i++) {

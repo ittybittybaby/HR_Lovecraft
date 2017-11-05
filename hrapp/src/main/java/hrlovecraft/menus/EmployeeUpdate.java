@@ -1,103 +1,109 @@
 package hrlovecraft.menus;
 
-import hrlovecraft.Department;
-//import hrlovecraft.Position;
-import hrlovecraft.SalaryTier;
+import hrlovecraft.*;
+
 
 public class EmployeeUpdate extends Menu {
 
-    private static final EmployeeUpdate INSTANCE = new EmployeeUpdate();
 
+    public enum UpdateSelections {NAME, ADDRESS, PHONE, EMAIL, DEPARTMENT, POSITION, SALARY, RETIREMENT, INSURANCE, BACK, MAIN}
 
-
-    public enum UpdateSelections {NAME, ADDRESS, PHONE, EMAIL, DEPARTMENT, POSITION, SALARY, BENEFITS, BACK, MAIN}
-
-    private EmployeeUpdate() {
-        super(UpdateSelections.values(), "test message");
+    private Employee employee;
+    public EmployeeUpdate(Employee employee) {
+        super(UpdateSelections.values());
+        this.employee = employee;
     }
 
     @Override
     public void userSelect(String userInput) {
         switch (UpdateSelections.valueOf(userInput)){
             case NAME: updateName();
-            break;
-            case ADDRESS:// updateAddress();
-            break;
+                break;
+            case ADDRESS: updateAddress();
+                break;
             case PHONE: updatePhone();
-            break;
+                break;
             case EMAIL:updateEmail();
-            break;
+                break;
             case DEPARTMENT:updateDepartment();
-            break;
+                break;
             case POSITION:updatePosition();
-            break;
+                break;
             case SALARY: updateSalary();
-            break;
-            case BENEFITS:updateBenefits();
-            break;
-            case BACK: EmployeeManagement.getInstance().display();
-            break;
+                break;
+            case RETIREMENT:retirement();
+                break;
+            case INSURANCE: insurance();
+            case BACK:
+                break;
             case MAIN: MainMenu.getInstance().display();
             default:display();
         }
     }
 
-    private void updateBenefits() {
+    private void insurance() {
+    }
+
+    private void retirement() {
 
     }
 
     private void updateSalary() {
-        System.out.println("Enter the new salary range for the employee: ");
-        String salaryRange=in.nextLine();
+        System.out.println("Enter the new salary tier for the employee: ");
+        String salaryRange=checkSalaryTier();
         employee.setSalaryTier(SalaryTier.valueOf(salaryRange));
-        EmployeeUpdate.getINSTANCE().display();
+        System.out.println("The employee's salary tier has been updated to: "+employee.getSalaryTier());
     }
 
     private void updatePosition() {
-        System.out.println("Enter the new position name for the employee: ");
-        String position=in.nextLine();
-//        employee.setPosition(Position.valueOf(position));
-        EmployeeUpdate.getINSTANCE().display();
+        String position=checkPosition();
+        employee.setPosition(Position.valueOf(position));
+        System.out.println("The employee's new role is: "+employee.getPosition());
     }
 
     private void updateDepartment() {
-        System.out.println("Enter the new department name for the employee: ");
-        String dept=in.nextLine();
+        String dept=checkDepartment();
         employee.setDepartment(Department.valueOf(dept));
-        EmployeeUpdate.getINSTANCE().display();
+        System.out.println("The employee now works in: "+ employee.getDepartment());
     }
 
     private void updateEmail() {
         System.out.println("Enter the new email address number for the employee: ");
         String emailAddr=in.nextLine();
         employee.getContactInfo().setEmail(emailAddr);
-        EmployeeUpdate.getINSTANCE().display();
+        System.out.println("The email address has been updated to: "+employee.getContactInfo().getEmail());
     }
 
     private void updatePhone() {
         System.out.println("Enter the new phone number for the employee: ");
         long phoneNum=in.nextLong();
         employee.getContactInfo().setPhoneNumber(phoneNum);
-        EmployeeUpdate.getINSTANCE().display();
+        System.out.println("The phone number has been updated to: "+employee.getContactInfo().getPhoneNumber());
     }
 
-    /*private void updateAddress() {
-        System.out.println("Enter the new address for the employee: ");
-        String streetAddress=in.nextLine();
-        employee. (streetAddress);
-        EmployeeUpdate.getINSTANCE().display();
-    }/**/
+    private void updateAddress() {
+        System.out.print("\nEnter the street address: ");
+        String addr=in.nextLine();
+        employee.getContactInfo().setStreetAddress(addr);
+        System.out.print("Enter the new city: ");
+        addr=in.nextLine();
+        employee.getContactInfo().setCity(addr);
+        String state=checkState();
+        employee.getContactInfo().setState(State.valueOf(state));
+        System.out.println("Address Update Successful.");
+    }
 
     private void updateName() {
         System.out.println("Enter the new name for the employee: ");
         String name=in.nextLine();
         employee.setName(name);
-        EmployeeUpdate.getINSTANCE().display();
+        System.out.println("The employee's name has been updated to "+employee.getName());
     }
 
-    public static EmployeeUpdate getINSTANCE() {
-        return INSTANCE;
-    }
-
+    public void printMenuMessage(){
+        System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n" +
+                "What would you like to manage\n" +
+                "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n" +
+                "Name: " + employee.getName() + "    " + "ID: " + employee.getEmployeeId());}
 
 }

@@ -10,7 +10,7 @@ public class Employee extends Person {
     private LocalDateTime hireDate;
     private LocalDateTime terminationDate;
     private SalaryTier salaryTier;
-    private Benefits benefits;
+    private Benefits benefits=new Benefits();
     private Position position;
     private TimeCardWarehouse TCW = new TimeCardWarehouse();
     private PaystubWarehouse PSW = new PaystubWarehouse();
@@ -67,16 +67,27 @@ public class Employee extends Person {
         this.benefits = benefits;
     }
 
+    public Benefits getBenefits() {
+        return benefits;
+    }
+
     public void setPosition(Position position){this.position=position;}
 
     public void submitTimeCard(TimeCard timeCard){
         TCW.add(timeCard);
     }
 
+    public Position getPosition(){
+        return position;
+    }
+
+    public SalaryTier getSalaryTier(){
+        return salaryTier;
+    }
+
     public String[] printAllPayStubs(){
         String[] paystubList = new String[PSW.getSize()];
         ArrayList<Paystub> paystubs = PSW.getList();
-
         for(int i = 0; i < paystubs.size(); i++) {
             Paystub paystub = paystubs.get(i);
             String line = paystub.toString();

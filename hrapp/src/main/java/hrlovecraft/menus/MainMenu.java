@@ -10,46 +10,52 @@ public class MainMenu extends Menu {
     public enum MainSelections {ADD_NEW_HIRE, EMPLOYEE_MANAGEMENT, QUIT}
 
     private MainMenu() {
-        super(MainSelections.values(),  "\n*****************************\n" +
-                "Welcome to the HR application\n" +
-                "*****************************\n\n" +
-                "What would you like to do today\n" +
-                "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+        super(MainSelections.values()/*, "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n" +
+                                       "What would you like to do today\n" +
+                                       "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"*/);
 
     }
 
     @Override
     public void userSelect(String userInput) {
-
         try {
             switch (MainSelections.valueOf(userInput)) {
                 case ADD_NEW_HIRE:
                     newHire();
                     break;
                 case EMPLOYEE_MANAGEMENT:
-                    employeeManagement();
+                    findEmployee();
                     break;
                 case QUIT:
                     System.exit(0);
                     break;
-                default:
-                    display();
             }
+            //this.setMenuMessage("Welcome to the Main Menu. Please select an option.");
         }
+        // After new hire is added this exception message appears
         catch (Exception e) {
-            this.setMenuMessage("");
             System.out.println("\nInvalid main menu input. Please enter again.\n");
-
         }
     }
 
-    private void employeeManagement() {
+    @Override
+    public void printMenuMessage() {
+        System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n" +
+                "What would you like to do today\n" +
+                "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+    }
+
+    private void findEmployee() {
         FindEmployee.getInstance().display();
     }
 
     private void newHire() {
-        CreateNewEmployee.getInstance().display();
-
+        CreateNewEmployee createNewEmployee = CreateNewEmployee.getInstance();
+        createNewEmployee.name();
+        createNewEmployee.address();
+        createNewEmployee.phone();
+        createNewEmployee.email();
+        createNewEmployee.createEmployee();
     }
 
     public static MainMenu getInstance() {

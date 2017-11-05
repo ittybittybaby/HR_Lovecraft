@@ -13,10 +13,10 @@ public class TimeCard {
     private long employeeId;
 
 
-    public TimeCard(String timeIn){
+    public TimeCard(String timeIn) {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM-dd-yyyy-HHmm");
-        this.timeIn= LocalDateTime.parse(timeIn, formatter);
-        timeOut=LocalDateTime.now();
+        this.timeIn = LocalDateTime.parse(timeIn, formatter);
+        timeOut = LocalDateTime.now();
     }
 
 
@@ -32,13 +32,13 @@ public class TimeCard {
         return employeeId;
     }
 
-    public double getHoursWorked(){
-       return (getTimeOut().get(MINUTE_OF_DAY)-getTimeIn().get(MINUTE_OF_DAY))/60.0;
+    public double getHoursWorked() {
+        return (getTimeOut().get(MINUTE_OF_DAY) - getTimeIn().get(MINUTE_OF_DAY)) / 60.0;
     }
 
-    public String toString(){
+    public String toString() {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM-dd-yyyy-HHmm");
-        return  getTimeIn().format(formatter);
+        return getTimeIn().format(formatter);
     }
 
 }

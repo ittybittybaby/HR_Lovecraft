@@ -15,9 +15,10 @@ public class CreateNewEmployee {
 
     private EmployeeWarehouse eWH = EmployeeWarehouse.getInstance();
 
-    private String[] employee = new String [6];
+    private String[] employee = new String[6];
 
-    private CreateNewEmployee() {}
+    private CreateNewEmployee() {
+    }
 
     public void createEmployee() {
         eWH.add(employee);
@@ -54,17 +55,17 @@ public class CreateNewEmployee {
         employee[1] = in.nextLine().trim();
         System.out.print("Enter the city: ");
         employee[2] = in.nextLine().trim();
-        boolean flag=false;
-        while(!flag)
-        try {
-            System.out.print("Enter the State: ");
-            String state = in.nextLine().trim().toUpperCase();
-            State.valueOf(state);
-            employee[3] = state;
-            flag=true;
-        } catch (Exception ex) {
-            System.out.println("Invalid State.");
-        }
+        boolean flag = false;
+        while (!flag)
+            try {
+                System.out.print("Enter the State: ");
+                String state = in.nextLine().trim().toUpperCase();
+                State.valueOf(state);
+                employee[3] = state;
+                flag = true;
+            } catch (Exception ex) {
+                System.out.println("Invalid State.");
+            }
     }
 
 

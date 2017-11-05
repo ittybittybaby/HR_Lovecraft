@@ -9,14 +9,14 @@ public class PayrollManagement extends Menu {
 
     private Employee employee;
 
-    public PayrollManagement(Employee employee){
+    public PayrollManagement(Employee employee) {
         super(Payroll.values());
         this.employee = employee;
     }
 
     @Override
     public void userSelect(String userInput) {
-        switch ( Payroll.valueOf(userInput)){
+        switch (Payroll.valueOf(userInput)) {
             case CREATE_PAYSTUB:
                 createPaystub();
                 break;

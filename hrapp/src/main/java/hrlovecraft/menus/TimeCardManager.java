@@ -5,11 +5,11 @@ import hrlovecraft.TimeCard;
 
 public class TimeCardManager extends Menu {
 
-    public enum TimeCardManagement{CREATE_TIMECARD, UPDATE_TIMECARD, VIEW_TIMECARD, MAIN, BACK}
+    public enum TimeCardManagement {CREATE_TIMECARD, UPDATE_TIMECARD, VIEW_TIMECARD, MAIN, BACK}
 
     private Employee employee;
 
-    public TimeCardManager(Employee employee){
+    public TimeCardManager(Employee employee) {
         super(TimeCardManagement.values());
         this.employee = employee;
     }
@@ -44,7 +44,7 @@ public class TimeCardManager extends Menu {
                 "Name: " + employee.getName() + "    " + "ID: " + employee.getEmployeeId());
     }
 
-    private void createTimeCard(){
+    private void createTimeCard() {
         System.out.println("Enter time in (MM-DD-YYYY-HHmm):");
         String timeIn = in.nextLine();
         TimeCard timeCard = new TimeCard(timeIn);
@@ -52,15 +52,13 @@ public class TimeCardManager extends Menu {
 
     }
 
-    private void updateTimeCard(){
+    private void updateTimeCard() {
 
     }
 
-    private void viewTimeCard(){
+    private void viewTimeCard() {
 
     }
-
-
 
 
 }

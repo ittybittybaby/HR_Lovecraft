@@ -52,6 +52,7 @@ public class Benefits {
         this.sickDays = number;
     }
 
+
     public void setBenefitPackageBySalaryTier(SalaryTier salaryTier) {
         switch (salaryTier) {
             case LOW:

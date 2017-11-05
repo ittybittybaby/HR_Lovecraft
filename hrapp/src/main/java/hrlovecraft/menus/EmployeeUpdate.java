@@ -70,13 +70,24 @@ public class EmployeeUpdate extends Menu {
     private void updateEmail() {
         System.out.println("Enter the new email address number for the employee: ");
         String emailAddr=in.nextLine();
+        while (!emailAddr.contains("@")) {
+            System.out.print("\nPlease make sure your email address has an @ in it.\n\n");
+            System.out.print("Enter an email address: ");
+            emailAddr = in.nextLine();
+        }
         employee.getContactInfo().setEmail(emailAddr);
         System.out.println("The email address has been updated to: "+employee.getContactInfo().getEmail());
     }
 
     private void updatePhone() {
         System.out.println("Enter the new phone number for the employee: ");
-        long phoneNum=in.nextLong();
+        String phoneNumber=in.nextLine();
+        while (!phoneNumber.matches("\\d{10}")) {
+            System.out.print("\nPlease make sure your phone number is 10 digits long.\n\n");
+            System.out.print("Enter a phone number: ");
+            phoneNumber = in.nextLine();
+        }
+        long phoneNum = Long.parseLong(phoneNumber);
         employee.getContactInfo().setPhoneNumber(phoneNum);
         System.out.println("The phone number has been updated to: "+employee.getContactInfo().getPhoneNumber());
     }

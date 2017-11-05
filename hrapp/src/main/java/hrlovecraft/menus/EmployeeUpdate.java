@@ -1,7 +1,7 @@
 package hrlovecraft.menus;
 
 import hrlovecraft.Department;
-import hrlovecraft.Position;
+//import hrlovecraft.Position;
 import hrlovecraft.SalaryTier;
 
 public class EmployeeUpdate extends Menu {
@@ -13,7 +13,7 @@ public class EmployeeUpdate extends Menu {
     public enum UpdateSelections {NAME, ADDRESS, PHONE, EMAIL, DEPARTMENT, POSITION, SALARY, BENEFITS, BACK, MAIN}
 
     private EmployeeUpdate() {
-        super(UpdateSelections.values());
+        super(UpdateSelections.values(), "test message");
     }
 
     @Override
@@ -56,7 +56,7 @@ public class EmployeeUpdate extends Menu {
     private void updatePosition() {
         System.out.println("Enter the new position name for the employee: ");
         String position=in.nextLine();
-        employee.setPosition(Position.valueOf(position));
+//        employee.setPosition(Position.valueOf(position));
         EmployeeUpdate.getINSTANCE().display();
     }
 

@@ -2,9 +2,7 @@ package hrlovecraft;
 
 
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.Date;
 
 public class Employee extends Person {
     private final long employeeId;
@@ -53,7 +51,11 @@ public class Employee extends Person {
         return TCW.get(fromDate);
     }
 
-   public Paystub getPaystub(String fromDate){
+    public PaystubWarehouse getPSW(){
+        return PSW;
+    }
+
+    public Paystub getPaystub(String fromDate){
        return PSW.get(fromDate);
     }
 
@@ -71,6 +73,15 @@ public class Employee extends Person {
         TCW.add(timeCard);
     }
 
+    public String[] printAllPayStubs(){
+        String[] paystubList = new String[PSW.getSize()];
+        ArrayList<Paystub> paystubs = PSW.getList();
 
-
+        for(int i = 0; i < paystubs.size(); i++) {
+            Paystub paystub = paystubs.get(i);
+            String line = paystub.toString();
+            paystubList[i] = line;
+        }
+        return paystubList;
+    }
 }

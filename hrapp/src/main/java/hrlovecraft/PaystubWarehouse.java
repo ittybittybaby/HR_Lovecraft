@@ -19,7 +19,7 @@ public class PaystubWarehouse extends Warehouse<Paystub> {
                 LocalDateTime localToDate= TimeCardWarehouse.stringToDate(toDate);
         ArrayList<Paystub> paystubArrayList=new ArrayList<Paystub>();
         for (Paystub paystub:paystubs){
-            if (paystub.getPayPeriodStartDate().isAfter(localFromDate)&&paystub.getGetPayPeriodEndDate().isBefore(localToDate))
+            if (paystub.getPayPeriodStartDate().isAfter(localFromDate)&&paystub.getPayPeriodEndDate().isBefore(localToDate))
                     paystubArrayList.add(paystub);
         }
         return paystubArrayList;
@@ -34,10 +34,10 @@ public class PaystubWarehouse extends Warehouse<Paystub> {
 
     }
 
-
     public int getSize(){
         return paystubs.size();
     }
+
 
 
 

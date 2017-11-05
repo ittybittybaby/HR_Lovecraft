@@ -10,10 +10,7 @@ public class EmployeeUpdate extends Menu {
 
     private Employee employee;
     public EmployeeUpdate(Employee employee) {
-        super(UpdateSelections.values()/*, "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n" +
-                "What would you like to update\n" +
-                "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n" +
-                "Name: " + employee.getName() + "    " + "ID: " + employee.getEmployeeId()*/);
+        super(UpdateSelections.values());
         this.employee = employee;
     }
 
@@ -53,21 +50,19 @@ public class EmployeeUpdate extends Menu {
 
     private void updateSalary() {
         System.out.println("Enter the new salary tier for the employee: ");
-        String salaryRange=in.nextLine();
+        String salaryRange=checkSalaryTier();
         employee.setSalaryTier(SalaryTier.valueOf(salaryRange));
         System.out.println("The employee's salary tier has been updated to: "+employee.getSalaryTier());
     }
 
     private void updatePosition() {
-        System.out.println("Enter the new position name for the employee: ");
-        String position=in.nextLine();
+        String position=checkPosition();
         employee.setPosition(Position.valueOf(position));
         System.out.println("The employee's new role is: "+employee.getPosition());
     }
 
     private void updateDepartment() {
-        System.out.println("Enter the new department name for the employee: ");
-        String dept=in.nextLine();
+        String dept=checkDepartment();
         employee.setDepartment(Department.valueOf(dept));
         System.out.println("The employee now works in: "+ employee.getDepartment());
     }
@@ -93,18 +88,8 @@ public class EmployeeUpdate extends Menu {
         System.out.print("Enter the new city: ");
         addr=in.nextLine();
         employee.getContactInfo().setCity(addr);
-        boolean flag=false;
-        while(!flag){
-            try{
-                System.out.print("Enter the State: ");
-                addr=in.nextLine();
-                State state=State.valueOf(addr);
-                employee.getContactInfo().setState(state);
-                flag=true;
-            }catch (Exception e){
-                System.out.println("Invalid State Entered.");
-            }
-        }
+        String state=checkState();
+        employee.getContactInfo().setState(State.valueOf(state));
         System.out.println("Address Update Successful.");
     }
 

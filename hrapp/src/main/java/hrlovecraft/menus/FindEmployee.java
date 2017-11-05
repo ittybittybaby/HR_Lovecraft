@@ -4,6 +4,8 @@ import hrlovecraft.Department;
 import hrlovecraft.Employee;
 import hrlovecraft.EmployeeWarehouse;
 
+import java.util.ArrayList;
+
 public class FindEmployee extends Menu {
     private static final FindEmployee INSTANCE = new FindEmployee();
 
@@ -12,16 +14,8 @@ public class FindEmployee extends Menu {
     public enum FindEmployeeSelections {BY_ID, BY_DEPT, MAIN}
 
     private FindEmployee() {
-        super(FindEmployeeSelections.values(), "\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n" +
-                                                 "What would you like to look Employee up by?\n" +
-                                                 "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+        super(FindEmployeeSelections.values());
     }
-
-//    private void findByDepartment() {
-//
-//    }
-
-
 
     @Override
     public void userSelect(String userInput) {
@@ -30,7 +24,7 @@ public class FindEmployee extends Menu {
                 findById();
                 break;
             case BY_DEPT:
-                //Find by department method
+                findByDept();
                 break;
             case MAIN:
                 MainMenu.getInstance().display();
@@ -38,11 +32,28 @@ public class FindEmployee extends Menu {
         }
     }
 
+    private void findByDept() {
+        String dept=checkDepartment();
+        ArrayList<Employee>employeeList=eWH.getEmployees(dept);
+        if(employeeList.size()!=0){
+        for (Employee employee: employeeList){
+            System.out.println("Name: "+employee.getName()+" ID: "+employee.getEmployeeId());
+        }
+        findById();}
+        else System.out.println("No employees found");
+    }
+
+    @Override
+    public void printMenuMessage() {
+        System.out.println( "\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n" +
+            "What would you like to look Employee up by?\n" +
+            "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");}
+
     private void findById() {
-        System.out.println("Enter the Employee's ID: ");
+        System.out.println("Enter the ID of the employee you wish to view: ");
         int employeeId = in.nextInt();
 
-        Employee employee = EmployeeWarehouse.getInstance().get(employeeId);
+        Employee employee = eWH.getById(employeeId);
         if (employee != null) {
             System.out.println("\n*** Found " + employee.getName() + " ***\n");
             new EmployeeManagement(employee).display();;

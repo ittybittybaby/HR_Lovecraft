@@ -9,10 +9,7 @@ public class EmployeeManagement extends Menu {
 
     private Employee employee;
     public EmployeeManagement(Employee employee){
-        super(EmpManagement.values()/*"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n" +
-                "What would you like to manage\n" +
-                "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n" +
-                "Name: " + employee.getName() + "    " + "ID: " + employee.getEmployeeId()*/);
+        super(EmpManagement.values());
         this.employee=employee;
 
     }

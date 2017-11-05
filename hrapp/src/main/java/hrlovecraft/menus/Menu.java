@@ -8,8 +8,6 @@ import java.util.Scanner;
 public abstract class Menu {
     EmployeeWarehouse eWH = EmployeeWarehouse.getInstance();
 
-    static Employee employee;
-
     private final Enum[] enumerations;
 
     private String menuMessage;
@@ -17,7 +15,6 @@ public abstract class Menu {
     public Menu (Enum[] enumerations, String menuMessage) {
         this.enumerations = enumerations;
         this.menuMessage =  menuMessage;
-        eWH.add("bob", "123 fake st", "wilminton", "DELAWARE", "5559991234", "none@zip.com");
     }
 
     Scanner in = new Scanner(System.in);
@@ -25,12 +22,14 @@ public abstract class Menu {
     public abstract void userSelect(String userInput);
 
 
-    public void display(){ //need to refactor
+    public void display(){
+
         String userInput="";
+
         do{
             userInput=getUserInput();
-            if(!"back".equalsIgnoreCase(userInput))
-                userSelect(menuToInt(userInput.toUpperCase()));
+            userInput=menuToInt(userInput.toUpperCase());
+                userSelect(userInput);
         }while (!"back".equalsIgnoreCase(userInput));
 
     }
@@ -50,8 +49,7 @@ public abstract class Menu {
     public String getUserInput(){
         int count = 0;
         printMenuMessage();
-
-        for(Enum e:enumerations) {
+        for (Enum e:enumerations) {
             count++;
             System.out.println(count + ") " + e );
         }

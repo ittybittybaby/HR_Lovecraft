@@ -42,21 +42,10 @@ public class FindEmployee extends Menu {
         System.out.println("Enter the Employee's ID: ");
         int employeeId = in.nextInt();
 
-            employee = EmployeeWarehouse.getInstance().get(employeeId);
-            if (employee != null) {
-                System.out.println("\n*** Found " + employee.getName() + " ***\n");
-                EmployeeManagement.getInstance().display();
-            } else {
-                System.out.println("Not Found");
-                FindEmployee.getInstance().display();
-            }
-    }
-
-
-        employee = EmployeeWarehouse.getInstance().get(employeeId);
+        Employee employee = EmployeeWarehouse.getInstance().get(employeeId);
         if (employee != null) {
             System.out.println("\n*** Found " + employee.getName() + " ***\n");
-            new EmployeeManagementos(employee).display();;
+            new EmployeeManagement(employee).display();;
         } else {
             System.out.println("Not Found");
             FindEmployee.getInstance().display();

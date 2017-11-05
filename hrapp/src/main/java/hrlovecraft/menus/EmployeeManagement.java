@@ -23,7 +23,7 @@ public class EmployeeManagement extends Menu {
         switch (EmpManagement.valueOf(userInput)){
 
             case VIEW:
-                // method to print out all of an employee's info
+                viewEmployee();
                 break;
             case UPDATE:
                 updateInformation();
@@ -48,16 +48,23 @@ public class EmployeeManagement extends Menu {
         }
     }
 
+    private void viewEmployee() {
+        new ViewEmployeeInfo(employee).display();
+    }
+
     private void payrollManagement() {
         PayrollManagement.getInstance().display();
     }
 
     private void updateInformation() {
         new EmployeeUpdate(employee).display();
+        display();
+
 
     }
 
     public void timecard(){
         TimeCardManager.getInstance().display();
     }
+
 }

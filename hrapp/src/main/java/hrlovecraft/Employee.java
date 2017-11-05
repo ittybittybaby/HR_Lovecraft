@@ -12,7 +12,7 @@ public class Employee extends Person {
     private LocalDateTime hireDate;
     private LocalDateTime terminationDate;
     private SalaryTier salaryTier;
-    private Benefits benefits;
+    private Benefits benefits=new Benefits();
     private Position position;
     private TimeCardWarehouse TCW = new TimeCardWarehouse();
     private PaystubWarehouse PSW = new PaystubWarehouse();
@@ -63,6 +63,10 @@ public class Employee extends Person {
 
     public void setBenefits(Benefits benefits) {
         this.benefits = benefits;
+    }
+
+    public Benefits getBenefits() {
+        return benefits;
     }
 
     public void setPosition(Position position){this.position=position;}

@@ -13,12 +13,17 @@ import java.util.ArrayList;
 
 public class CreatePaystub extends Menu {
 
-    private static final CreatePaystub INSTANCE = new CreatePaystub();
-
     public enum createPaystubSelections {YES, NO}
 
-    private CreatePaystub() {
-        super(createPaystubSelections.values(), "Would you like to create this Paystub?");
+    private Employee employee;
+
+    private CreatePaystub(Employee employee) {
+        super(createPaystubSelections.values());
+        this.employee = employee;
+    }
+
+    public void printMenuMessage() {
+        System.out.println("Would you like to create this Paystub?");
     }
 
     @Override
@@ -35,7 +40,7 @@ public class CreatePaystub extends Menu {
         LocalDateTime endDate = timeCards.get(timeCards.size()).getTimeOut();
 
         double amountPaid = 0.0d;
-        for(TimeCard card : timeCards) {
+        for (TimeCard card : timeCards) {
             amountPaid += card.getHoursWorked();
         }
         amountPaid *= employee.getPosition().getPayRate();

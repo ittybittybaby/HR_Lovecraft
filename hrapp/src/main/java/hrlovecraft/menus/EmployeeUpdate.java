@@ -10,19 +10,11 @@ public class EmployeeUpdate extends Menu {
 
     private Employee employee;
     public EmployeeUpdate(Employee employee) {
-        super(UpdateSelections.values(),"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n" +
+        super(UpdateSelections.values(), "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n" +
                 "What would you like to update\n" +
                 "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n" +
                 "Name: " + employee.getName() + "    " + "ID: " + employee.getEmployeeId());
-        this.employee=employee;
-
-
-    private EmployeeUpdate() {
-        super(UpdateSelections.values(),"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n" +
-                                        "What would you like to update\n" +
-                                        "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n" +
-                                        "Name: " + employee.getName() + "    " + "ID: " + employee.getEmployeeId());
-
+        this.employee = employee;
     }
 
     @Override

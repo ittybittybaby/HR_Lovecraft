@@ -3,6 +3,8 @@ package hrlovecraft;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.util.ArrayList;
+
 public class EmployeeWarehouseTest {
 
 
@@ -23,7 +25,9 @@ public class EmployeeWarehouseTest {
 
     @Test
     public void getTest() throws Exception {
-
+ArrayList<Employee> employees= eWH.getEmployees("New_Hire");
+for(Employee emp:employees)
+    System.out.println(emp.getName());
 
 
     }

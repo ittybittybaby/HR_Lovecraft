@@ -66,7 +66,7 @@ public abstract class Menu {
         while (!flag) {
             try {
                 System.out.println("Enter the name of the department you would like to look in: ");
-                dept = in.nextLine().toUpperCase();
+                dept = in.nextLine();
                 Department.valueOf(dept);
                 flag = true;
             } catch (Exception ex) {
@@ -98,7 +98,7 @@ public abstract class Menu {
         while (!flag) {
             try {
                 System.out.print("Enter the new Position: ");
-                position = in.nextLine().toUpperCase();
+                position = in.nextLine();
                 Position.valueOf(position);
                 flag = true;
             } catch (Exception e) {

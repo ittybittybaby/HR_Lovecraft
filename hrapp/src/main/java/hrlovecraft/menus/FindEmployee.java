@@ -11,8 +11,7 @@ public class FindEmployee extends Menu {
     public enum FindEmployeeSelections {BY_ID, BY_DEPT, MAIN, QUIT}
 
     private FindEmployee() {
-        super(FindEmployeeSelections.values(), "\n\n Add New Hire. What information would you like to input" +
-                " on the following employee?");
+        super(FindEmployeeSelections.values(), "\n\n How would you like to search for the employee(s)?");
     }
 
     @Override
@@ -27,10 +26,10 @@ public class FindEmployee extends Menu {
         System.out.println("Enter the Employee's ID");
         int employeeId=in.nextInt();
 
-        employee = EmployeeWarehouse.getInstance().get(employeeId);
+        Employee employee = EmployeeWarehouse.getInstance().get(employeeId);
         if (employee != null) {
             System.out.println("\n*** Found " + employee.getName() + " ***\n");
-            new EmployeeManagementos(employee).display();;
+            new EmployeeManagement(employee).display();;
         } else {
             System.out.println("Not Found");
             FindEmployee.getInstance().display();

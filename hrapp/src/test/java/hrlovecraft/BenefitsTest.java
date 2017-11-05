@@ -4,10 +4,10 @@ import org.junit.Assert;
 import org.junit.Test;
 
 public class BenefitsTest {
-
+    Benefits benefits = new Benefits(SalaryTier.LOW);
     @Test
     public void getSetSickDaysTest(){
-        Benefits benefits = new Benefits();
+        Benefits benefits = new Benefits(SalaryTier.LOW);
         int sickDaysExpected = 25;
         benefits.setSickDays(sickDaysExpected);
         int sickDaysActual = benefits.getSickDays();
@@ -16,7 +16,7 @@ public class BenefitsTest {
 
     @Test
     public void getSetVacationDays(){
-        Benefits benefits = new Benefits();
+        //Benefits benefits = new Benefits();
         int vacationDaysexpected = 30;
         benefits.setVacationDays(vacationDaysexpected);
         int vacationDaysactual = benefits.getVacationDays();
@@ -25,25 +25,25 @@ public class BenefitsTest {
 
     @Test
     public void getHasHealthcare(){
-        Benefits benefits = new Benefits();
+        //Benefits benefits = new Benefits();
         boolean expected = false;
-        benefits.setBenefitPackageBySalaryTier();
+        benefits.setBenefitPackageBySalaryTier(SalaryTier.LOW);
         boolean actual = benefits.getHasHealthcare();
         Assert.assertEquals(expected, actual);
     }
 
     @Test
     public void getHasRetirementPlan(){
-        Benefits benefits = new Benefits();
+       // Benefits benefits = new Benefits();
         boolean expected = false;
-       benefits.setBenefitPackageBySalaryTier();
+       benefits.setBenefitPackageBySalaryTier(SalaryTier.LOW);
         boolean actual = benefits.getHasRetirementPlan();
         Assert.assertEquals(expected, actual);
     }
 
     @Test
     public void setBenefitsPackageBySalaryTier(){
-        Benefits benefits = new Benefits();
+       // Benefits benefits = new Benefits();
 
     }
 

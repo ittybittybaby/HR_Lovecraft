@@ -1,10 +1,7 @@
 package hrlovecraft;
 
 import org.junit.Assert;
-import org.junit.Before;
 import org.junit.Test;
-
-import static org.junit.Assert.*;
 
 public class EmployeeWarehouseTest {
 
@@ -19,7 +16,7 @@ public class EmployeeWarehouseTest {
         Employee expected=new Employee(44,"tom","123 st", "newark", "delaware", "2222222222", "zip@zippity.com");
 
         eWH.add(expected);
-        Employee actual =eWH.get(44);
+        Employee actual =eWH.getById(44);
 
         Assert.assertEquals(expected, actual);
     }

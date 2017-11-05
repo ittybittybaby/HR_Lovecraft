@@ -10,7 +10,8 @@ public class Employee extends Person {
     private LocalDateTime hireDate;
     private LocalDateTime terminationDate;
     private SalaryTier salaryTier;
-    private Benefits benefits = new Benefits();
+    private Benefits benefits;
+
     private Position position;
     private TimeCardWarehouse TCW = new TimeCardWarehouse();
     private PaystubWarehouse PSW = new PaystubWarehouse();
@@ -20,6 +21,10 @@ public class Employee extends Person {
         this.employeeId = employeeId;
         hireDate = LocalDateTime.now();
         terminationDate = null;
+        salaryTier=SalaryTier.LOW;
+        benefits=new Benefits(salaryTier);
+        department=Department.New_Hire;
+        position=Position.New_Hire;
     }
 
     public long getEmployeeId() {
@@ -39,8 +44,11 @@ public class Employee extends Person {
         department = dept;
     }
 
-    public void setSalaryTier(SalaryTier salaryTier) {
-        this.salaryTier = salaryTier;
+
+
+    public void setSalaryTier(SalaryTier salaryTier){
+        this.salaryTier=salaryTier;
+        setBenefitsBySalaryTier(salaryTier);
     }
 
     public ArrayList<TimeCard> getTimeCards(String fromDate, String toDate) {
@@ -53,18 +61,20 @@ public class Employee extends Person {
 
     public PaystubWarehouse getPSW() {
         return PSW;
+
     }
 
     public Paystub getPaystub(String fromDate) {
         return PSW.get(fromDate);
     }
 
+
     public ArrayList<Paystub> getPaystubs(String fromDate, String toDate) {
         return PSW.get(fromDate, toDate);
     }
 
-    public void setBenefits(Benefits benefits) {
-        this.benefits = benefits;
+    public void setBenefitsBySalaryTier(SalaryTier salaryTier) {
+        benefits.setBenefitPackageBySalaryTier(salaryTier);
     }
 
     public Benefits getBenefits() {

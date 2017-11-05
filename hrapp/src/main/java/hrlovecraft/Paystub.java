@@ -22,6 +22,10 @@ public class Paystub {
         this.payPeriodEndDate = getPayPeriodEndDate;
     }
 
+    @Override
+    public String toString(){
+        return this.employeeID.toString() + " $" + this.amountPaid.toString() + " | " + this.payPeriodStartDate.toString() + " - " + this.payPeriodEndDate.toString();
+    }
 
 //    public double calculateWage(Employee employee) {
 //        int hours = employee.;
@@ -31,11 +35,15 @@ public class Paystub {
 //        return amountPaid;
 //    }
 
+    public double getAmountPaid() {
+        return this.amountPaid;
+    }
+
     public LocalDateTime getPayPeriodStartDate(){
         return payPeriodStartDate;
     }
-
-    public LocalDateTime getGetPayPeriodEndDate() {
+    
+    public LocalDateTime getPayPeriodEndDate() {
         return payPeriodEndDate;
     }
 }

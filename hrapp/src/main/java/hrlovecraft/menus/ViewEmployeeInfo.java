@@ -28,9 +28,9 @@ public class ViewEmployeeInfo extends Menu {
         }
     }
 
-    public void display() {
-        String userInput = "";
-        System.out.println("Employee "
+    public void display(){
+        String userInput="";
+        System.out.println("\nEmployee "
                 + employee.getName() +
                 " - " + employee.getEmployeeId() +
                 "\nHIRE DATE: " + employee.getHireDate() +
@@ -42,8 +42,8 @@ public class ViewEmployeeInfo extends Menu {
                 "\nPOSITION: " + employee.getPosition() +
                 "\nSALARY TIER: " + employee.getSalaryTier() +
                 "\nBENEFITS: " +
-                "\n   VACATION REMAINING: " + employee.getBenefits().getVacationDays() +
-                "\n   SICK TIME REMAINING: " + employee.getBenefits().getSickDays() +
+                "\n   VACATION DAYS REMAINING: " + employee.getBenefits().getVacationDays() +
+                "\n   SICK TIME DAYS REMAINING: " + employee.getBenefits().getSickDays() +
                 "\n   ENROLLED FOR RETIREMENT: " + employee.getBenefits().getHasRetirementPlan() +
                 "\n   MEDICALLY INSURED: " + employee.getBenefits().getHasHealthcare() +
                 "\n");

@@ -45,10 +45,10 @@ public class Employee extends Person {
     }
 
 
+
     public void setSalaryTier(SalaryTier salaryTier){
         this.salaryTier=salaryTier;
         setBenefitsBySalaryTier(salaryTier);
-
     }
 
     public ArrayList<TimeCard> getTimeCards(String fromDate, String toDate) {
@@ -61,11 +61,13 @@ public class Employee extends Person {
 
     public PaystubWarehouse getPSW() {
         return PSW;
+
     }
 
     public Paystub getPaystub(String fromDate) {
         return PSW.get(fromDate);
     }
+
 
     public ArrayList<Paystub> getPaystubs(String fromDate, String toDate) {
         return PSW.get(fromDate, toDate);

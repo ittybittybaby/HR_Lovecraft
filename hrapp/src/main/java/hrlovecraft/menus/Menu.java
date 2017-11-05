@@ -1,7 +1,6 @@
 package hrlovecraft.menus;
 
-import hrlovecraft.Employee;
-import hrlovecraft.EmployeeWarehouse;
+import hrlovecraft.*;
 
 import java.util.Scanner;
 
@@ -10,11 +9,10 @@ public abstract class Menu {
 
     private final Enum[] enumerations;
 
-    //private String menuMessage;
 
-    public Menu (Enum[] enumerations/*, String menuMessage*/) {
+
+    public Menu (Enum[] enumerations) {
         this.enumerations = enumerations;
-        //this.menuMessage =  menuMessage;
     }
 
     Scanner in = new Scanner(System.in);
@@ -60,7 +58,67 @@ public abstract class Menu {
     public abstract void printMenuMessage();
 
 
-    //public void setMenuMessage(String newMessage) {
-        //this.menuMessage = newMessage;
-   // }
+    public String checkDepartment(){
+        String dept="";
+        boolean flag = false;
+        while (!flag) {
+            try {
+                System.out.println("Enter the name of the department you would like to look in: ");
+                dept = in.nextLine().toUpperCase();
+                Department.valueOf(dept);
+                flag=true;
+            } catch (Exception ex) {
+                System.out.println("Invalid Department Name");
+            }
+        }
+        return dept;
+    }
+
+    public String checkState(){
+        boolean flag=false;
+        String state="";
+        while(!flag){
+            try{
+                System.out.print("Enter the State: ");
+                state=in.nextLine().toUpperCase();
+                State.valueOf(state);
+                flag=true;
+            }catch (Exception e){
+                System.out.println("Invalid State Entered.");
+            }
+        }
+        return state;
+    }
+
+    public String checkPosition(){
+        boolean flag=false;
+        String position="";
+        while(!flag){
+            try{
+                System.out.print("Enter the new Position: ");
+                position=in.nextLine().toUpperCase();
+                Position.valueOf(position);
+                flag=true;
+            }catch (Exception e){
+                System.out.println("Invalid Position Entered.");
+            }
+        }
+        return position;
+    }
+
+    public String checkSalaryTier(){
+        boolean flag=false;
+        String salaryTier="";
+        while(!flag){
+            try{
+                System.out.print("Enter the new Salary Tier: ");
+                salaryTier=in.nextLine().toUpperCase();
+                SalaryTier.valueOf(salaryTier);
+                flag=true;
+            }catch (Exception e){
+                System.out.println("Invalid Salary Tier Entered.");
+            }
+        }
+        return salaryTier;
+    }
 }

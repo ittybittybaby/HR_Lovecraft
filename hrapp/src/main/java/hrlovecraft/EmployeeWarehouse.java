@@ -16,7 +16,8 @@ public class EmployeeWarehouse extends Warehouse<Employee> {
     }
 
     private EmployeeWarehouse(){
-     }
+        Employee expected=new Employee(getIdNum(),"tom","123 st", "newark", "delaware", "2222222222", "zip@zippity.com");
+add(expected);    }
 
     public static EmployeeWarehouse getInstance(){
         return INSTANCE;
@@ -29,7 +30,7 @@ Employee employee=new Employee(getIdNum(),empData[0],empData[1],empData[2],empDa
         employees.add(employee);
     }
 
-    public Employee get(int idNum){
+    public Employee getById(int idNum){
         for(Employee employee: employees){
             if(employee.getEmployeeId() == idNum)
                 return employee;
@@ -37,7 +38,15 @@ Employee employee=new Employee(getIdNum(),empData[0],empData[1],empData[2],empDa
         return null;
     }
 
-
+    public ArrayList<Employee> getEmployees(String dept) {
+        Department department=Department.valueOf(dept);
+        ArrayList<Employee>employeeList=new ArrayList<>();
+        for(Employee employee: employees){
+            if(employee.getDepartment().equals(department))
+                employeeList.add(employee);
+        }
+        return employeeList;
+    }
 
     public int size(){
         return employees.size();

@@ -37,7 +37,6 @@ public enum State {
      */
     private static final Map<String, State> STATES_BY_ABBR = new HashMap<String, State>();
 
-    /* static initializer */
     static {
         for (State state : values()) {
             STATES_BY_ABBR.put(state.getAbbreviation(), state);

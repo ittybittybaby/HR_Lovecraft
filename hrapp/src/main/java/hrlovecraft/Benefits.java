@@ -25,13 +25,6 @@ public class Benefits {
         }
     }
 
-    /*public Benefits(int sickdays, int vacationDays, boolean hasHealthCare, boolean hasRetirementPlan) {
-        this.sickDays = sickdays;
-        this.vacationDays = vacationDays;
-        this.hasHealthcare = hasHealthCare;
-        this.hasRetirementPlan = hasRetirementPlan;
-    }/**/
-
     public int getSickDays() {
         return sickDays;
     }
@@ -51,8 +44,6 @@ public class Benefits {
     public void setSickDays(int number) {
         this.sickDays = number;
     }
-
-
 
     public void setBenefitPackageBySalaryTier(SalaryTier salaryTier) {
         switch (salaryTier) {
@@ -83,21 +74,5 @@ public class Benefits {
     public void setVacationDays(int number) {
         this.vacationDays = number;
     }
-//
-//    public void setBenefitPackageBySalaryTier(enum salaryTier) {
-//        switch (salaryTier) {
-//            case "low":
-//                hasHealthcare = false;
-//                hasRetirementPlan = false;
-//                break;
-//            case "mid":
-//                hasHealthcare = true;
-//                hasRetirementPlan = false;
-//                break;
-//            case "high":
-//                hasHealthcare = true;
-//                hasRetirementPlan = true;
-//                break;
-//        }
-//    }
+
 }

@@ -8,13 +8,6 @@ public class Paystub {
     private LocalDateTime payPeriodStartDate;
     private LocalDateTime payPeriodEndDate;
 
-    public Paystub() {
-        this.employeeID = null;
-        this.amountPaid = null;
-        payPeriodStartDate = null;
-        payPeriodEndDate = null;
-    }
-
     public Paystub(long employeeID, double amountPaid, LocalDateTime payPeriodStartDate, LocalDateTime getPayPeriodEndDate) {
         this.employeeID = employeeID;
         this.amountPaid = amountPaid;
@@ -25,18 +18,6 @@ public class Paystub {
     @Override
     public String toString() {
         return this.employeeID.toString() + " $" + this.amountPaid.toString() + " | " + this.payPeriodStartDate.toString() + " - " + this.payPeriodEndDate.toString();
-    }
-
-//    public double calculateWage(Employee employee) {
-//        int hours = employee.;
-//        for(int i = 0; i < ) {
-//
-//        }
-//        return amountPaid;
-//    }
-
-    public double getAmountPaid() {
-        return this.amountPaid;
     }
 
     public LocalDateTime getPayPeriodStartDate() {

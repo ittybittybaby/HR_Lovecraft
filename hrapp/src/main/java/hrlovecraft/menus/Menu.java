@@ -83,8 +83,16 @@ public abstract class Menu {
             try {
                 System.out.print("Enter the State: ");
                 state = in.nextLine().toUpperCase();
-                State.valueOf(state);
-                flag = true;
+
+                if(state.length() == 2){
+                    State.valueOfAbbreviation(state);
+                    state = State.valueOfAbbreviation(state).toString().toUpperCase();
+                    flag = true;
+                }
+                else {
+                    State.valueOf(state);
+                    flag = true;
+                }
             } catch (Exception e) {
                 System.out.println("Invalid State Entered.");
             }

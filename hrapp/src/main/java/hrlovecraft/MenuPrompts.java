@@ -149,11 +149,4 @@ public class MenuPrompts {
         System.out.println("Enter the pay period or pay periods you would like to view: ");
     }
 
-
-    // depending on choice, prompt user to input Department name or Employee ID
-    // now prompt user to either view or manage Department or Specific Employee
-    // if view, need to give options of what to view (e.g. paystubs, benefits, contact information etc.)
-    // if manage, need to give options of what to manage (e.g. paystubs, benefits, update contact information, etc.)
-
-
 }

@@ -6,11 +6,9 @@ public class ViewPayPeriod extends Menu {
 
     public enum PayPeriod {MAIN, BACK}
 
-    ;
-
     private Employee employee;
 
-    private ViewPayPeriod(Employee employee) {
+    public ViewPayPeriod(Employee employee) {
         super(PayPeriod.values());
         this.employee = employee;
         printAllPaystubs();

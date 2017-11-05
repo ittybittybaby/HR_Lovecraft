@@ -1,7 +1,5 @@
 package hrlovecraft.menus;
 
-//import hrlovecraft.MenuPrompts;
-
 import hrlovecraft.EmployeeWarehouse;
 import hrlovecraft.State;
 

@@ -17,7 +17,7 @@ public class CreatePaystub extends Menu {
 
     private Employee employee;
 
-    private CreatePaystub(Employee employee) {
+    public CreatePaystub(Employee employee) {
         super(createPaystubSelections.values());
         this.employee = employee;
     }

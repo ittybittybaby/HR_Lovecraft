@@ -4,7 +4,6 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 public class PaystubWarehouse extends Warehouse<Paystub> {
-    //private static final PaystubWarehouse INSTANCE=new PaystubWarehouse();
 
     private ArrayList<Paystub> paystubs = getList();
 
@@ -12,8 +11,7 @@ public class PaystubWarehouse extends Warehouse<Paystub> {
     public void add(Paystub paystub) {
         paystubs.add(paystub);
     }
-
-    //change from/to lines after Paystub class is complete
+    
     public ArrayList<Paystub> get(String fromDate, String toDate) {
         LocalDateTime localFromDate = TimeCardWarehouse.stringToDate(fromDate);
         LocalDateTime localToDate = TimeCardWarehouse.stringToDate(toDate);

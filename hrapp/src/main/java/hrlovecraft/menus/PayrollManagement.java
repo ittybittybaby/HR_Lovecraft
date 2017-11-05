@@ -3,7 +3,6 @@ package hrlovecraft.menus;
 import hrlovecraft.Employee;
 
 public class PayrollManagement extends Menu {
-//    private static final PayrollManagement INSTANCE = new PayrollManagement();
 
     public enum Payroll {CREATE_PAYSTUB, VIEW_PAY_PERIOD, MAIN, BACK}
 
@@ -41,13 +40,11 @@ public class PayrollManagement extends Menu {
     }
 
     private void createPaystub() {
+        new CreatePaystub(employee).display();
     }
 
     private void viewPayPeriod() {
+        new ViewPayPeriod(employee).display();
     }
-
-//    public static PayrollManagement getInstance(){
-//        return INSTANCE;
-//    }
 
 }

@@ -41,7 +41,6 @@ public class EmployeeManagement extends Menu {
                 break;
             default:
                 display();
-
         }
     }
 
@@ -64,9 +63,6 @@ public class EmployeeManagement extends Menu {
 
     private void updateInformation() {
         new EmployeeUpdate(employee).display();
-        display();
-
-
     }
 
     public void printMenuMessage() {

@@ -1,18 +1,17 @@
 package hrlovecraft.menus;
 
+import hrlovecraft.Employee;
 import hrlovecraft.TimeCard;
 
 public class TimeCardManager extends Menu {
 
-    private static final TimeCardManager INSTANCE=new TimeCardManager();
+    public enum TimeCardManagement {CREATE_TIMECARD, UPDATE_TIMECARD, VIEW_TIMECARD, MAIN, BACK}
 
-    public enum TimeCardManagement{CREATE_TIMECARD, UPDATE_TIMECARD, VIEW_TIMECARD, MAIN, BACK}
+    private Employee employee;
 
-    private TimeCardManager(){
-        super(TimeCardManagement.values(), "~~~~~~~~~~~~~~~~~~~~~~~~~\n" +
-                                           "What would you like to do\n" +
-                                           "~~~~~~~~~~~~~~~~~~~~~~~~~\n" +
-                                           "Name: " + employee.getName() + "    " + "ID: " + employee.getEmployeeId());
+    public TimeCardManager(Employee employee) {
+        super(TimeCardManagement.values());
+        this.employee = employee;
     }
 
     @Override
@@ -31,13 +30,21 @@ public class TimeCardManager extends Menu {
                 MainMenu.getInstance().display();
                 break;
             case BACK:
-                EmployeeManagement.getInstance().display();
+                return;
             default:
                 display();
         }
     }
 
-    private void createTimeCard(){
+    @Override
+    public void printMenuMessage() {
+        System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~\n" +
+                "What would you like to do\n" +
+                "~~~~~~~~~~~~~~~~~~~~~~~~~\n" +
+                "Name: " + employee.getName() + "    " + "ID: " + employee.getEmployeeId());
+    }
+
+    private void createTimeCard() {
         System.out.println("Enter time in (MM-DD-YYYY-HHmm):");
         String timeIn = in.nextLine();
         TimeCard timeCard = new TimeCard(timeIn);
@@ -45,16 +52,13 @@ public class TimeCardManager extends Menu {
 
     }
 
-    private void updateTimeCard(){
+    private void updateTimeCard() {
 
     }
 
-    private void viewTimeCard(){
+    private void viewTimeCard() {
 
     }
 
-    public static TimeCardManager getInstance(){
-        return INSTANCE;
-    }
 
 }

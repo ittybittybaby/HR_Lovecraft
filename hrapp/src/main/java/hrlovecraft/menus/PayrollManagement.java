@@ -1,20 +1,22 @@
 package hrlovecraft.menus;
 
+import hrlovecraft.Employee;
+
 public class PayrollManagement extends Menu {
-    private static final PayrollManagement INSTANCE = new PayrollManagement();
+//    private static final PayrollManagement INSTANCE = new PayrollManagement();
 
     public enum Payroll {CREATE_PAYSTUB, VIEW_PAY_PERIOD, MAIN, BACK}
 
-    private PayrollManagement(){
-        super(Payroll.values(), "~~~~~~~~~~~~~~~~~~~~~~~~~\n" +
-                                "What would you like to do\n" +
-                                "~~~~~~~~~~~~~~~~~~~~~~~~~\n" +
-                                "Name: " + employee.getName() + "    " + "ID: " + employee.getEmployeeId());
+    private Employee employee;
+
+    public PayrollManagement(Employee employee) {
+        super(Payroll.values());
+        this.employee = employee;
     }
 
     @Override
     public void userSelect(String userInput) {
-        switch ( Payroll.valueOf(userInput)){
+        switch (Payroll.valueOf(userInput)) {
             case CREATE_PAYSTUB:
                 createPaystub();
                 break;
@@ -25,9 +27,17 @@ public class PayrollManagement extends Menu {
                 MainMenu.getInstance().display();
                 break;
             case BACK:
-                EmployeeManagement.getInstance().display();
+                new EmployeeManagement(employee).display();
                 break;
         }
+    }
+
+    @Override
+    public void printMenuMessage() {
+        System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~\n" +
+                "What would you like to do\n" +
+                "~~~~~~~~~~~~~~~~~~~~~~~~~\n" +
+                "Name: " + employee.getName() + "    " + "ID: " + employee.getEmployeeId());
     }
 
     private void createPaystub() {
@@ -36,8 +46,8 @@ public class PayrollManagement extends Menu {
     private void viewPayPeriod() {
     }
 
-    public static PayrollManagement getInstance(){
-        return INSTANCE;
-    }
+//    public static PayrollManagement getInstance(){
+//        return INSTANCE;
+//    }
 
 }

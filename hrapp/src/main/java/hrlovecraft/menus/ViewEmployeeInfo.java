@@ -4,17 +4,18 @@ import hrlovecraft.Employee;
 
 public class ViewEmployeeInfo extends Menu {
 
-    public enum ViewEmployee{BACK, MAIN, NEW_SEARCH}
+    public enum ViewEmployee {BACK, MAIN, NEW_SEARCH}
 
     private Employee employee;
-    public ViewEmployeeInfo(Employee employee){
+
+    public ViewEmployeeInfo(Employee employee) {
         super(ViewEmployee.values());
-        this.employee=employee;
+        this.employee = employee;
     }
 
     @Override
     public void userSelect(String userInput) {
-        switch ( ViewEmployee.valueOf(userInput)){
+        switch (ViewEmployee.valueOf(userInput)) {
 
             case BACK:
                 break;
@@ -46,11 +47,11 @@ public class ViewEmployeeInfo extends Menu {
                 "\n   ENROLLED FOR RETIREMENT: " + employee.getBenefits().getHasRetirementPlan() +
                 "\n   MEDICALLY INSURED: " + employee.getBenefits().getHasHealthcare() +
                 "\n");
-        do{
-            userInput=getUserInput();
-            userInput=menuToInt(userInput.toUpperCase());
+        do {
+            userInput = getUserInput();
+            userInput = menuToInt(userInput.toUpperCase());
             userSelect(userInput);
-        }while (!"back".equalsIgnoreCase(userInput));
+        } while (!"back".equalsIgnoreCase(userInput));
 
     }
 

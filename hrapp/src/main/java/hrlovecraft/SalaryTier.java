@@ -6,7 +6,7 @@ public enum SalaryTier {
     double tierMin;
     double tierMax;
 
-    SalaryTier(double tierMin, double tierMax){
+    SalaryTier(double tierMin, double tierMax) {
         this.tierMin = tierMin;
         this.tierMax = tierMax;
     }

@@ -41,7 +41,8 @@ public class Benefits {
         this.sickDays = number;
     }
 
-    public void setBenefitPackageBySalaryTier(){}
+    public void setBenefitPackageBySalaryTier() {
+    }
 
     public void setVacationDays(int number) {
         this.vacationDays = number;

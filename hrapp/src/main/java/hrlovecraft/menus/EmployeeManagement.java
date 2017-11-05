@@ -4,20 +4,19 @@ import hrlovecraft.*;
 
 public class EmployeeManagement extends Menu {
 
-    public enum EmpManagement{VIEW, UPDATE, PAYROLL_MANAGEMENT, TERMINATE, TIMECARD, MAIN, BACK}
-
+    public enum EmpManagement {VIEW, UPDATE, PAYROLL_MANAGEMENT, TERMINATE, TIMECARD, MAIN, BACK}
 
     private Employee employee;
-    public EmployeeManagement(Employee employee){
-        super(EmpManagement.values());
-        this.employee=employee;
 
+    public EmployeeManagement(Employee employee) {
+        super(EmpManagement.values());
+        this.employee = employee;
     }
 
     @Override
     public void userSelect(String userInput) {
 
-        switch (EmpManagement.valueOf(userInput)){
+        switch (EmpManagement.valueOf(userInput)) {
 
             case VIEW:
                 viewEmployee();
@@ -59,7 +58,7 @@ public class EmployeeManagement extends Menu {
     }
 
     private void payrollManagement() {
-        PayrollManagement.getInstance().display();
+        new PayrollManagement(employee).display();
     }
 
     private void updateInformation() {
@@ -68,14 +67,16 @@ public class EmployeeManagement extends Menu {
 
 
     }
-    public void printMenuMessage(){
-        System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n" +
-            "What would you like to manage\n" +
-            "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n" +
-            "Name: " + employee.getName() + "    " + "ID: " + employee.getEmployeeId());}
 
-    public void timecard(){
-        TimeCardManager.getInstance().display();
+    public void printMenuMessage() {
+        System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n" +
+                "What would you like to manage\n" +
+                "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n" +
+                "Name: " + employee.getName() + "    " + "ID: " + employee.getEmployeeId());
+    }
+
+    public void timecard() {
+        new TimeCardManager(employee).display();
     }
 
 }

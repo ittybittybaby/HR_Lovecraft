@@ -6,20 +6,20 @@ public class Paystub {
     private Long employeeID;
     private Double amountPaid;
     private LocalDateTime payPeriodStartDate;
-    private LocalDateTime getPayPeriodEndDate;
+    private LocalDateTime payPeriodEndDate;
 
     public Paystub() {
         this.employeeID = null;
         this.amountPaid = null;
         payPeriodStartDate = null;
-        getPayPeriodEndDate = null;
+        payPeriodEndDate = null;
     }
 
     public Paystub(long employeeID, double amountPaid, LocalDateTime payPeriodStartDate, LocalDateTime getPayPeriodEndDate) {
         this.employeeID = employeeID;
         this.amountPaid = amountPaid;
         this.payPeriodStartDate = payPeriodStartDate;
-        this.getPayPeriodEndDate = getPayPeriodEndDate;
+        this.payPeriodEndDate = getPayPeriodEndDate;
     }
 
 
@@ -36,6 +36,6 @@ public class Paystub {
     }
 
     public LocalDateTime getGetPayPeriodEndDate() {
-        return getPayPeriodEndDate;
+        return payPeriodEndDate;
     }
 }

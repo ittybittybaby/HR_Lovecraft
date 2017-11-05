@@ -6,14 +6,14 @@ import hrlovecraft.*;
 public class EmployeeUpdate extends Menu {
 
 
-    public enum UpdateSelections {NAME, ADDRESS, PHONE, EMAIL, DEPARTMENT, POSITION, SALARY, BENEFITS, BACK, MAIN}
+    public enum UpdateSelections {NAME, ADDRESS, PHONE, EMAIL, DEPARTMENT, POSITION, SALARY, RETIREMENT, INSURANCE, BACK, MAIN}
 
     private Employee employee;
     public EmployeeUpdate(Employee employee) {
-        super(UpdateSelections.values(), "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n" +
+        super(UpdateSelections.values()/*, "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n" +
                 "What would you like to update\n" +
                 "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n" +
-                "Name: " + employee.getName() + "    " + "ID: " + employee.getEmployeeId());
+                "Name: " + employee.getName() + "    " + "ID: " + employee.getEmployeeId()*/);
         this.employee = employee;
     }
 
@@ -34,8 +34,9 @@ public class EmployeeUpdate extends Menu {
                 break;
             case SALARY: updateSalary();
                 break;
-            case BENEFITS:updateBenefits();
+            case RETIREMENT:retirement();
                 break;
+            case INSURANCE: insurance();
             case BACK:
                 break;
             case MAIN: MainMenu.getInstance().display();
@@ -43,13 +44,15 @@ public class EmployeeUpdate extends Menu {
         }
     }
 
-    private void updateBenefits() {
+    private void insurance() {
+    }
 
+    private void retirement() {
 
     }
 
     private void updateSalary() {
-        System.out.println("Enter the new salary range for the employee: ");
+        System.out.println("Enter the new salary tier for the employee: ");
         String salaryRange=in.nextLine();
         employee.setSalaryTier(SalaryTier.valueOf(salaryRange));
         System.out.println("The employee's salary tier has been updated to: "+employee.getSalaryTier());
@@ -111,5 +114,11 @@ public class EmployeeUpdate extends Menu {
         employee.setName(name);
         System.out.println("The employee's name has been updated to "+employee.getName());
     }
+
+    public void printMenuMessage(){
+        System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n" +
+                "What would you like to manage\n" +
+                "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n" +
+                "Name: " + employee.getName() + "    " + "ID: " + employee.getEmployeeId());}
 
 }

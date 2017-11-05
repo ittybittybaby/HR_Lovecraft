@@ -8,9 +8,9 @@ public class ViewEmployeeInfo extends Menu {
 
     private Employee employee;
     public ViewEmployeeInfo(Employee employee){
-        super(ViewEmployee.values(), "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n" +
+        super(ViewEmployee.values()/*, "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n" +
                 "Employee Information\n" +
-                "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+                "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n"*/);
         this.employee=employee;
     }
 
@@ -52,6 +52,13 @@ public class ViewEmployeeInfo extends Menu {
             userSelect(userInput);
         }while (!"back".equalsIgnoreCase(userInput));
 
+    }
+
+    @Override
+    public void printMenuMessage() {
+        System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n" +
+                "Employee Information\n" +
+                "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
     }
 
 }

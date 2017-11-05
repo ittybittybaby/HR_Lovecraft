@@ -10,11 +10,11 @@ public abstract class Menu {
 
     private final Enum[] enumerations;
 
-    private String menuMessage;
+    //private String menuMessage;
 
-    public Menu (Enum[] enumerations, String menuMessage) {
+    public Menu (Enum[] enumerations/*, String menuMessage*/) {
         this.enumerations = enumerations;
-        this.menuMessage =  menuMessage;
+        //this.menuMessage =  menuMessage;
     }
 
     Scanner in = new Scanner(System.in);
@@ -57,11 +57,10 @@ public abstract class Menu {
         return in.nextLine();
     }
 
-    public void printMenuMessage() {
-        System.out.println(this.menuMessage);
-    }
+    public abstract void printMenuMessage();
 
-    public void setMenuMessage(String newMessage) {
-        this.menuMessage = newMessage;
-    }
+
+    //public void setMenuMessage(String newMessage) {
+        //this.menuMessage = newMessage;
+   // }
 }

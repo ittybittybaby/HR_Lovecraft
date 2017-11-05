@@ -23,7 +23,7 @@ public class Paystub {
     }
 
     @Override
-    public String toString(){
+    public String toString() {
         return this.employeeID.toString() + " $" + this.amountPaid.toString() + " | " + this.payPeriodStartDate.toString() + " - " + this.payPeriodEndDate.toString();
     }
 
@@ -39,10 +39,10 @@ public class Paystub {
         return this.amountPaid;
     }
 
-    public LocalDateTime getPayPeriodStartDate(){
+    public LocalDateTime getPayPeriodStartDate() {
         return payPeriodStartDate;
     }
-    
+
     public LocalDateTime getPayPeriodEndDate() {
         return payPeriodEndDate;
     }

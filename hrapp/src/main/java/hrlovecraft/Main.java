@@ -9,8 +9,8 @@ public class Main {
 
         MenuPrompts.getMenu().printWelcomeMessage();
 
-        while(true){
-                MainMenu.getInstance().display();
+        while (true) {
+            MainMenu.getInstance().display();
         }
     }
 }

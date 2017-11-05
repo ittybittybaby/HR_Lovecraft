@@ -2,9 +2,11 @@ package hrlovecraft.menus;
 
 import hrlovecraft.Employee;
 
-public class ViewPayPeriod extends Menu{
+public class ViewPayPeriod extends Menu {
 
-    public enum PayPeriod {MAIN, BACK};
+    public enum PayPeriod {MAIN, BACK}
+
+    ;
 
     private Employee employee;
 
@@ -14,14 +16,14 @@ public class ViewPayPeriod extends Menu{
     }
 
     @Override
-    public void userSelect (String userInput){
+    public void userSelect(String userInput) {
         switch (PayPeriod.valueOf(userInput)) {
             case MAIN:
                 MainMenu.getInstance().display();
                 break;
             case BACK:
                 return;
-                        }
+        }
     }
 
     @Override
@@ -31,7 +33,7 @@ public class ViewPayPeriod extends Menu{
                 "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
     }
 
-    public void viewAllPaystubs(){
+    public void viewAllPaystubs() {
         System.out.println(employee.getAllPaystubRecords());
     }
 

@@ -9,7 +9,7 @@ public abstract class Person {
         this.contactInfo = null;
     }
 
-    public Person(String name,String addr, String city, String state, String phone, String email) {
+    public Person(String name, String addr, String city, String state, String phone, String email) {
         this.name = name;
         this.contactInfo = new Contact(addr, city, State.valueOf(state.toUpperCase()), phone, email);
     }

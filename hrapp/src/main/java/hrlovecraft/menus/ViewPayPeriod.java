@@ -3,7 +3,6 @@ package hrlovecraft.menus;
 import hrlovecraft.Employee;
 
 public class ViewPayPeriod extends Menu{
-    private static final ViewPayPeriod INSTANCE = new ViewPayPeriod();
 
     public enum PayPeriod {MAIN, BACK};
 
@@ -35,9 +34,6 @@ public class ViewPayPeriod extends Menu{
     public void viewAllPaystubs(){
         System.out.println(employee.getAllPaystubRecords());
     }
-
-
-    public static ViewPayPeriod getInstance() {return INSTANCE;}
 
 
 }

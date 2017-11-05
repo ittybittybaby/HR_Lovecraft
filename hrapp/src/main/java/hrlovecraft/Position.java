@@ -6,7 +6,9 @@ public enum Position {
 
     private final double payRate;
 
-    Position(double payRate) {this.payRate = payRate;}
+    Position(double payRate) {
+        this.payRate = payRate;
+    }
 
     public double getPayRate() {
         return this.payRate;

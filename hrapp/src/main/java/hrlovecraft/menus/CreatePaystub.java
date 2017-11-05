@@ -40,7 +40,7 @@ public class CreatePaystub extends Menu {
         LocalDateTime endDate = timeCards.get(timeCards.size()).getTimeOut();
 
         double amountPaid = 0.0d;
-        for(TimeCard card : timeCards) {
+        for (TimeCard card : timeCards) {
             amountPaid += card.getHoursWorked();
         }
         amountPaid *= employee.getPosition().getPayRate();

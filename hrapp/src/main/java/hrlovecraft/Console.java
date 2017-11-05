@@ -17,27 +17,27 @@ public class Console {
     public void handleWelcomeMessageInput() {
         int choice = Integer.parseInt(getStringInput());
         switch (choice) {
-            case 1 :
+            case 1:
                 //MenuPrompts.getMenu().hireNewEmployee();
 
                 break;
 
-            case 2 :
+            case 2:
                 //MenuPrompts.getMenu().manageCurrentEmployees();
                 int userChoice = Integer.parseInt(getStringInput());
-                switch (userChoice){
-                    case 1 :
+                switch (userChoice) {
+                    case 1:
                         System.out.println("Please enter a specific employee ID: ");
                         long employeeID = Long.parseLong(getStringInput());
                         break;
 
-                    default :
+                    default:
                         System.out.println("Wrong input");
                         break;
                 } // End switch on userChoice
                 break;
 
-            default :
+            default:
                 System.out.println("Wrong input");
                 break;
 
@@ -45,17 +45,16 @@ public class Console {
         }
     }
 
-    public String getStringInput(){
+    public String getStringInput() {
         Scanner scanner = new Scanner(System.in);
         return scanner.nextLine();
     }
 
-    public String getStringInput(String input){
+    public String getStringInput(String input) {
         Scanner scanner = new Scanner(System.in);
         System.out.println(input);
         return scanner.nextLine();
     }
-
 
 
     public void handleHireNewEmployeePersonalInput() {
@@ -73,7 +72,7 @@ public class Console {
         int phoneNumber = scanner.nextInt();
         System.out.println("Please enter the employee's email address.");
         String email = scanner.nextLine();
-       // Contact contactInfo = new Contact(streetAddress, city, state1, phoneNumber, email);
+        // Contact contactInfo = new Contact(streetAddress, city, state1, phoneNumber, email);
         //Person person = new Person(name, contactInfo);
     }
 

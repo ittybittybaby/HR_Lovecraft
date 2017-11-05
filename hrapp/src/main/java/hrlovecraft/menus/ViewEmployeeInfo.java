@@ -4,17 +4,18 @@ import hrlovecraft.Employee;
 
 public class ViewEmployeeInfo extends Menu {
 
-    public enum ViewEmployee{BACK, MAIN, NEW_SEARCH}
+    public enum ViewEmployee {BACK, MAIN, NEW_SEARCH}
 
     private Employee employee;
-    public ViewEmployeeInfo(Employee employee){
+
+    public ViewEmployeeInfo(Employee employee) {
         super(ViewEmployee.values());
-        this.employee=employee;
+        this.employee = employee;
     }
 
     @Override
     public void userSelect(String userInput) {
-        switch ( ViewEmployee.valueOf(userInput)){
+        switch (ViewEmployee.valueOf(userInput)) {
 
             case BACK:
                 break;
@@ -27,8 +28,8 @@ public class ViewEmployeeInfo extends Menu {
         }
     }
 
-    public void display(){
-        String userInput="";
+    public void display() {
+        String userInput = "";
         System.out.println("Employee "
                 + employee.getName() +
                 " - " + employee.getEmployeeId() +
@@ -39,18 +40,18 @@ public class ViewEmployeeInfo extends Menu {
                 "\nEMAIL ADDRESS: " + employee.getContactInfo().getEmail() +
                 "\nDEPARTEMENT: " + employee.getDepartment() +
                 "\nPOSITION: " + employee.getPosition() +
-                "\nSALARY TIER" + employee.getSalaryTier() +
+                "\nSALARY TIER: " + employee.getSalaryTier() +
                 "\nBENEFITS: " +
                 "\n   VACATION REMAINING: " + employee.getBenefits().getVacationDays() +
                 "\n   SICK TIME REMAINING: " + employee.getBenefits().getSickDays() +
                 "\n   ENROLLED FOR RETIREMENT: " + employee.getBenefits().getHasRetirementPlan() +
                 "\n   MEDICALLY INSURED: " + employee.getBenefits().getHasHealthcare() +
                 "\n");
-        do{
-            userInput=getUserInput();
-            userInput=menuToInt(userInput.toUpperCase());
+        do {
+            userInput = getUserInput();
+            userInput = menuToInt(userInput.toUpperCase());
             userSelect(userInput);
-        }while (!"back".equalsIgnoreCase(userInput));
+        } while (!"back".equalsIgnoreCase(userInput));
 
     }
 

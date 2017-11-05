@@ -42,7 +42,7 @@ public class Paystub {
     public LocalDateTime getPayPeriodStartDate(){
         return payPeriodStartDate;
     }
-    
+
     public LocalDateTime getPayPeriodEndDate() {
         return payPeriodEndDate;
     }

@@ -27,7 +27,7 @@ public class ViewPayPeriod extends Menu{
     }
 
     public void viewAllPaystubs(){
-        System.out.println(employee.printAllPayStubs());
+        System.out.print();
     }
 
 

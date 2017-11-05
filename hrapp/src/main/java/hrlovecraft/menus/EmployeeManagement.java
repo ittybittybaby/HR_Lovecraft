@@ -1,6 +1,6 @@
 package hrlovecraft.menus;
 
-import hrlovecraft.Employee;
+import hrlovecraft.*;
 
 public class EmployeeManagement extends Menu {
 
@@ -28,7 +28,8 @@ public class EmployeeManagement extends Menu {
             case PAYROLL_MANAGEMENT:
                 payrollManagement();
                 break;
-            case TERMINATE: // Create terminate method
+            case TERMINATE:
+                terminate();
                 break;
             case TIMECARD:
                 timecard();
@@ -43,6 +44,14 @@ public class EmployeeManagement extends Menu {
                 display();
 
         }
+    }
+
+    private void terminate() {
+        String employeeName = employee.getName();
+        employee.setDepartment(Department.Terminated);
+        employee.setPosition(Position.Terminated);
+        employee.getBenefits().setBenefitPackageBySalaryTier(SalaryTier.TERMINATED);
+        System.out.println(employeeName + " has been successfully terminated.");
     }
 
     private void viewEmployee() {

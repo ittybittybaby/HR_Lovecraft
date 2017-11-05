@@ -16,10 +16,11 @@ public class ViewEmployeeInfo extends Menu {
     public void userSelect(String userInput) {
         switch ( ViewEmployee.valueOf(userInput)){
 
+            case BACK:
+                break;
             case MAIN:
                 MainMenu.getInstance().display();
                 break;
-            case BACK:break;
             case NEW_SEARCH:
                 FindEmployee.getInstance().display();
                 break;

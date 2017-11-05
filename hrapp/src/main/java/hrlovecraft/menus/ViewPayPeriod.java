@@ -13,6 +13,7 @@ public class ViewPayPeriod extends Menu {
     private ViewPayPeriod(Employee employee) {
         super(PayPeriod.values());
         this.employee = employee;
+        printAllPaystubs();
     }
 
     @Override
@@ -33,8 +34,11 @@ public class ViewPayPeriod extends Menu {
                 "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
     }
 
-    public void viewAllPaystubs() {
-        System.out.println(employee.getAllPaystubRecords());
+    public void printAllPaystubs(){
+        String[] empPaystubs = employee.getAllPaystubRecords();
+        for(int i = 0; i < empPaystubs.length; i++){
+            System.out.println(empPaystubs[i]);
+        }
     }
 
 

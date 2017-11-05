@@ -19,6 +19,7 @@ public abstract class Menu {
 
     public abstract void userSelect(String userInput);
 
+    public abstract void printMenuMessage();
 
     public void display(){
 
@@ -54,8 +55,6 @@ public abstract class Menu {
         System.out.print("\nEnter your selection: " + "\n");
         return in.nextLine();
     }
-
-    public abstract void printMenuMessage();
 
 
     public String checkDepartment(){

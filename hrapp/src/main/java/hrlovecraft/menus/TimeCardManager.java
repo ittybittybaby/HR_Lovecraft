@@ -1,18 +1,17 @@
 package hrlovecraft.menus;
 
+import hrlovecraft.Employee;
 import hrlovecraft.TimeCard;
 
 public class TimeCardManager extends Menu {
 
-    private static final TimeCardManager INSTANCE=new TimeCardManager();
-
     public enum TimeCardManagement{CREATE_TIMECARD, UPDATE_TIMECARD, VIEW_TIMECARD, MAIN, BACK}
 
-    private TimeCardManager(){
-        super(TimeCardManagement.values(), "~~~~~~~~~~~~~~~~~~~~~~~~~\n" +
-                                           "What would you like to do\n" +
-                                           "~~~~~~~~~~~~~~~~~~~~~~~~~\n" +
-                                           "Name: " + employee.getName() + "    " + "ID: " + employee.getEmployeeId());
+    private Employee employee;
+
+    public TimeCardManager(Employee employee){
+        super(TimeCardManagement.values());
+        this.employee = employee;
     }
 
     @Override
@@ -31,10 +30,18 @@ public class TimeCardManager extends Menu {
                 MainMenu.getInstance().display();
                 break;
             case BACK:
-                EmployeeManagement.getInstance().display();
+                return;
             default:
                 display();
         }
+    }
+
+    @Override
+    public void printMenuMessage() {
+        System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~\n" +
+                "What would you like to do\n" +
+                "~~~~~~~~~~~~~~~~~~~~~~~~~\n" +
+                "Name: " + employee.getName() + "    " + "ID: " + employee.getEmployeeId());
     }
 
     private void createTimeCard(){
@@ -53,8 +60,7 @@ public class TimeCardManager extends Menu {
 
     }
 
-    public static TimeCardManager getInstance(){
-        return INSTANCE;
-    }
+
+
 
 }

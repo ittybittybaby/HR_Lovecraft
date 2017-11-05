@@ -38,7 +38,7 @@ public class ViewEmployeeInfo extends Menu {
                 "\n" + employee.getContactInfo().getCity() + ", " + employee.getContactInfo().getState() +
                 "\nCONTACT NUMBER: " + employee.getContactInfo().getPhoneNumber() +
                 "\nEMAIL ADDRESS: " + employee.getContactInfo().getEmail() +
-                "\nDEPARTEMENT: " + employee.getDepartment() +
+                "\nDEPARTMENT: " + employee.getDepartment() +
                 "\nPOSITION: " + employee.getPosition() +
                 "\nSALARY TIER: " + employee.getSalaryTier() +
                 "\nBENEFITS: " +

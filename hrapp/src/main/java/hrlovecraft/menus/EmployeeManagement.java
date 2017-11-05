@@ -50,7 +50,8 @@ public class EmployeeManagement extends Menu {
         employee.setDepartment(Department.Terminated);
         employee.setPosition(Position.Terminated);
         employee.getBenefits().setBenefitPackageBySalaryTier(SalaryTier.TERMINATED);
-        System.out.println(employeeName + " has been successfully terminated.");
+        employee.setSalaryTier(SalaryTier.TERMINATED);
+        System.out.println("\n" + employeeName + " has been successfully terminated.\n");
     }
 
     private void viewEmployee() {

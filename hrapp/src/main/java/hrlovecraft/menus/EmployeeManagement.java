@@ -9,10 +9,10 @@ public class EmployeeManagement extends Menu {
 
     private Employee employee;
     public EmployeeManagement(Employee employee){
-        super(EmpManagement.values(), "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n" +
+        super(EmpManagement.values()/*"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n" +
                 "What would you like to manage\n" +
                 "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n" +
-                "Name: " + employee.getName() + "    " + "ID: " + employee.getEmployeeId());
+                "Name: " + employee.getName() + "    " + "ID: " + employee.getEmployeeId()*/);
         this.employee=employee;
 
     }
@@ -62,6 +62,11 @@ public class EmployeeManagement extends Menu {
 
 
     }
+    public void printMenuMessage(){
+        System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n" +
+            "What would you like to manage\n" +
+            "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n" +
+            "Name: " + employee.getName() + "    " + "ID: " + employee.getEmployeeId());}
 
     public void timecard(){
         TimeCardManager.getInstance().display();

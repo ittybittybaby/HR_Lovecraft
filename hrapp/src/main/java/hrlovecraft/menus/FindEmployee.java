@@ -1,5 +1,6 @@
 package hrlovecraft.menus;
 
+import hrlovecraft.Department;
 import hrlovecraft.Employee;
 import hrlovecraft.EmployeeWarehouse;
 
@@ -8,23 +9,38 @@ public class FindEmployee extends Menu {
 
 
 
-    public enum FindEmployeeSelections {BY_ID, BY_DEPT, MAIN, QUIT}
+    public enum FindEmployeeSelections {BY_ID, BY_DEPT, MAIN}
 
     private FindEmployee() {
-        super(FindEmployeeSelections.values(), "\n\n How would you like to search for the employee(s)?");
+        super(FindEmployeeSelections.values(), "\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n" +
+                                                 "What would you like to look Employee up by?\n" +
+                                                 "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
     }
+
+//    private void findByDepartment() {
+//
+//    }
+
+
 
     @Override
     public void userSelect(String userInput) {
         switch(FindEmployeeSelections.valueOf(userInput)){
-            case BY_ID: findById();
-            break;
+            case BY_ID:
+                findById();
+                break;
+            case BY_DEPT:
+                //Find by department method
+                break;
+            case MAIN:
+                MainMenu.getInstance().display();
+                break;
         }
     }
 
     private void findById() {
-        System.out.println("Enter the Employee's ID");
-        int employeeId=in.nextInt();
+        System.out.println("Enter the Employee's ID: ");
+        int employeeId = in.nextInt();
 
         Employee employee = EmployeeWarehouse.getInstance().get(employeeId);
         if (employee != null) {

@@ -21,7 +21,9 @@ public abstract class Menu {
 
     public abstract void userSelect(String userInput);
 
+
     public void display(){
+
         String userInput="";
 
         do{

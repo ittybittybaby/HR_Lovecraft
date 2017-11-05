@@ -7,6 +7,7 @@ public class EmployeeUpdate extends Menu {
 
 
     public enum UpdateSelections {NAME, ADDRESS, PHONE, EMAIL, DEPARTMENT, POSITION, SALARY, BENEFITS, BACK, MAIN}
+
     private Employee employee;
     public EmployeeUpdate(Employee employee) {
         super(UpdateSelections.values(),"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n" +
@@ -14,6 +15,14 @@ public class EmployeeUpdate extends Menu {
                 "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n" +
                 "Name: " + employee.getName() + "    " + "ID: " + employee.getEmployeeId());
         this.employee=employee;
+
+
+    private EmployeeUpdate() {
+        super(UpdateSelections.values(),"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n" +
+                                        "What would you like to update\n" +
+                                        "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n" +
+                                        "Name: " + employee.getName() + "    " + "ID: " + employee.getEmployeeId());
+
     }
 
     @Override

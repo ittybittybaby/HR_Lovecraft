@@ -33,6 +33,7 @@ public class FindEmployee extends Menu {
 
     private void findByDept() {
         String dept = checkDepartment();
+        System.out.println(dept);
         ArrayList<Employee> employeeList = eWH.getEmployees(dept);
         if (employeeList.size() != 0) {
             for (Employee employee : employeeList) {

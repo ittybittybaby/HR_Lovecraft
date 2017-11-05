@@ -9,8 +9,6 @@ public abstract class Menu {
 
     private final Enum[] enumerations;
 
-
-
     public Menu (Enum[] enumerations) {
         this.enumerations = enumerations;
     }
@@ -19,32 +17,38 @@ public abstract class Menu {
 
     public abstract void userSelect(String userInput);
 
+    public abstract void printMenuMessage();
 
     public void display(){
 
-        String userInput="";
+        String userInput = null;
 
-        do{
-            userInput=getUserInput();
-            userInput=menuToInt(userInput.toUpperCase());
+        do {
+            try {
+                userInput=getUserInput();
+                userInput=menuToInt(userInput.toUpperCase());
                 userSelect(userInput);
-        }while (!"back".equalsIgnoreCase(userInput));
+            } catch (IllegalArgumentException|ArrayIndexOutOfBoundsException e) {
+                e.printStackTrace();
+                System.out.println("Invalid number selection. Try again.");
+            }
+        } while (!"back".equalsIgnoreCase(userInput));
 
     }
 
     public String menuToInt(String input) {
-        int output = 0;
+        int output;
         try {
-            output = Integer.parseInt(input)-1;
+            output = Integer.parseInt(input) - 1;
             return "" + this.enumerations[output];
-        }
-        catch (Exception e) {
-            //System.err.println("\nInvalid menu option. Please try again.");
+        } catch (IllegalArgumentException|ArrayIndexOutOfBoundsException e) {
+
         }
         return null;
     }
 
     public String getUserInput(){
+        in = new Scanner(System.in);
         int count = 0;
         printMenuMessage();
         for (Enum e:enumerations) {
@@ -54,8 +58,6 @@ public abstract class Menu {
         System.out.print("\nEnter your selection: " + "\n");
         return in.nextLine();
     }
-
-    public abstract void printMenuMessage();
 
 
     public String checkDepartment(){

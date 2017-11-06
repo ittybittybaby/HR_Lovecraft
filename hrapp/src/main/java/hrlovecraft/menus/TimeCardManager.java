@@ -5,7 +5,7 @@ import hrlovecraft.TimeCard;
 
 public class TimeCardManager extends Menu {
 
-    public enum TimeCardManagement {CREATE_TIMECARD, UPDATE_TIMECARD, VIEW_TIMECARD, MAIN, BACK}
+    public enum TimeCardManagement {CREATE_TIMECARD, MAIN, BACK}
 
     private Employee employee;
 
@@ -19,12 +19,6 @@ public class TimeCardManager extends Menu {
         switch (TimeCardManagement.valueOf(userInput)) {
             case CREATE_TIMECARD:
                 createTimeCard();
-                break;
-            case UPDATE_TIMECARD:
-                updateTimeCard();
-                break;
-            case VIEW_TIMECARD:
-                viewTimeCard();
                 break;
             case MAIN:
                 MainMenu.getInstance().display();
@@ -51,14 +45,4 @@ public class TimeCardManager extends Menu {
         employee.submitTimeCard(timeCard);
 
     }
-
-    private void updateTimeCard() {
-
-    }
-
-    private void viewTimeCard() {
-
-    }
-
-
 }

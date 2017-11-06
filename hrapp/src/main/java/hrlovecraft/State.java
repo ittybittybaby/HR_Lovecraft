@@ -22,19 +22,10 @@ public enum State {
             "Washington", "WA"), WEST_VIRGINIA("West Virginia", "WV"), WISCONSIN("Wisconsin", "WI"), WYOMING("Wyoming", "WY"), UNKNOWN(
             "Unknown", "");
 
-    /**
-     * The state's name.
-     */
     private String name;
 
-    /**
-     * The state's abbreviation.
-     */
     private String abbreviation;
 
-    /**
-     * The set of states addressed by abbreviations.
-     */
     private static final Map<String, State> STATES_BY_ABBR = new HashMap<String, State>();
 
     static {
@@ -43,33 +34,15 @@ public enum State {
         }
     }
 
-    /**
-     * Constructs a new state.
-     *
-     * @param name the state's name.
-     * @param abbreviation the state's abbreviation.
-     */
     State(String name, String abbreviation) {
         this.name = name;
         this.abbreviation = abbreviation;
     }
 
-    /**
-     * Returns the state's abbreviation.
-     *
-     * @return the state's abbreviation.
-     */
     public String getAbbreviation() {
         return abbreviation;
     }
 
-    /**
-     * Gets the enum constant with the specified abbreviation.
-     *
-     * @param abbr the state's abbreviation.
-     * @return the enum constant with the specified abbreviation.
-     *
-     */
     public static State valueOfAbbreviation(final String abbr) {
         final State state = STATES_BY_ABBR.get(abbr);
         if (state != null) {

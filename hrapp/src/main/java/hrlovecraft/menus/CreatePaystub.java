@@ -15,8 +15,6 @@ import java.util.Scanner;
 
 public class CreatePaystub {
 
-    //public enum createPaystubSelections {YES, NO}
-
     private Employee employee;
     private PaystubWarehouse psw;
     private String startDateString;
@@ -24,38 +22,9 @@ public class CreatePaystub {
     private Paystub paystub;
     Scanner in = new Scanner(System.in);
     public CreatePaystub(Employee employee) {
-        //super(createPaystubSelections.values());
         this.employee = employee;
         this.psw = employee.getPSW();
-
-
-//
-//        System.out.print("Enter a start date (MM-dd-yyyy-HHmm): ");
-//        this.startDateString = in.nextLine();
-//        System.out.print("Enter an end date (MM-dd-yyyy-HHmm): ");
-//        this.endDateString = in.nextLine();
-
-        //printSamplePaystub();
     }
-
-    public void printMenuMessage() {
-        System.out.println("Would you like to create this Paystub?");
-    }
-
-    /*
-    @Override
-    public void userSelect(String userInput) {
-        switch (createPaystubSelections.valueOf(userInput)) {
-            case YES:
-                psw.add(paystub);
-
-                break;
-            case NO:
-                payrollManagement();
-                break;
-        }
-    }
-    */
 
     public void printSamplePaystub() {
         System.out.print("Enter a start date (MM-dd-yyyy): ");

@@ -1,10 +1,8 @@
 package hrlovecraft;
 
-import java.sql.Time;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.Date;
 
 public class TimeCardWarehouse extends Warehouse<TimeCard> {
 
@@ -32,7 +30,6 @@ public class TimeCardWarehouse extends Warehouse<TimeCard> {
         return LocalDateTime.parse(date+ "-0000", formatter);
     }
 
-    //change to/from dates types after TimeCard class complete
     public ArrayList<TimeCard> get(String dateFrom, String dateTo) {
         ArrayList<TimeCard> cardSelection = new ArrayList<TimeCard>();
         for (TimeCard card : timeCards) {

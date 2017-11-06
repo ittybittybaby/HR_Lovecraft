@@ -1,8 +1,5 @@
 package hrlovecraft.menus;
 
-import hrlovecraft.Employee;
-import hrlovecraft.EmployeeWarehouse;
-
 public class MainMenu extends Menu {
 
     private static final MainMenu INSTANCE = new MainMenu();

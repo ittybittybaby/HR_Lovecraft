@@ -40,11 +40,12 @@ public class PayrollManagement extends Menu {
     }
 
     private void createPaystub() {
-        new CreatePaystub(employee).display();
+        new CreatePaystub(employee).printSamplePaystub();
     }
 
     private void viewPayPeriod() {
-        new ViewPayPeriod(employee).display();
+        new ViewPayPeriod(employee).printAllPaystubs();
+
     }
 
 }

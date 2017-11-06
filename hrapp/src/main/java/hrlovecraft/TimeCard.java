@@ -37,7 +37,7 @@ public class TimeCard {
     }
 
     public String toString() {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM-dd-yyyy-HHmm");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM-dd-yyyy");
         return getTimeIn().format(formatter);
     }
 

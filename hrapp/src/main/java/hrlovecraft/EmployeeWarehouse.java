@@ -16,8 +16,7 @@ public class EmployeeWarehouse extends Warehouse<Employee> {
     }
 
     private EmployeeWarehouse() {
-        Employee expected = new Employee(getIdNum(), "tom", "123 st", "newark", "delaware", "2222222222", "zip@zippity.com");
-        add(expected);
+        Employee employee = generateEmployee();
     }
 
     public static EmployeeWarehouse getInstance() {
@@ -51,5 +50,22 @@ public class EmployeeWarehouse extends Warehouse<Employee> {
 
     public int size() {
         return employees.size();
+    }
+
+    private Employee generateEmployee() {
+        Employee employee = new Employee(1, "tom", "123 st", "newark", "delaware", "2222222222", "zip@zippity.com");
+        PaystubWarehouse psw = employee.getPSW();
+        TimeCard timeCard1 = new TimeCard("04-20-1999-0420");
+        TimeCard timeCard2 = new TimeCard("04-21-1999-0420");
+        Paystub paystub1 = new Paystub(1, 100, LocalDateTime.now(), LocalDateTime.now().plusDays(1));
+        Paystub paystub2 = new Paystub(1, 100, LocalDateTime.now(), LocalDateTime.now().plusDays(2));
+        employee.submitTimeCard(timeCard1);
+        employee.submitTimeCard(timeCard2);
+        psw.add(paystub1);
+        psw.add(paystub2);
+
+        this.add(employee);
+
+        return employee;
     }
 }

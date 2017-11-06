@@ -1,6 +1,7 @@
 package hrlovecraft;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class Paystub {
     private Long employeeID;
@@ -17,7 +18,8 @@ public class Paystub {
 
     @Override
     public String toString() {
-        return this.employeeID.toString() + " $" + this.amountPaid.toString() + " | " + this.payPeriodStartDate.toString() + " - " + this.payPeriodEndDate.toString();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM-dd-yyyy");
+        return this.employeeID + "\t$" + this.amountPaid + "\t|\t" + this.payPeriodStartDate.format(formatter) + " - " + this.payPeriodEndDate.format(formatter);
     }
 
     public LocalDateTime getPayPeriodStartDate() {

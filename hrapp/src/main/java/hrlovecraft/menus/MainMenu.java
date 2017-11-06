@@ -31,6 +31,7 @@ public class MainMenu extends Menu {
         }
         // After new hire is added this exception message appears
         catch (Exception e) {
+            e.printStackTrace();
             System.out.println("\nInvalid main menu input. Please enter again.\n");
         }
     }

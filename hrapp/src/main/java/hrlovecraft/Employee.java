@@ -3,6 +3,7 @@ package hrlovecraft;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Employee extends Person {
     private final long employeeId;
@@ -13,12 +14,14 @@ public class Employee extends Person {
     private Benefits benefits;
 
     private Position position;
-    private TimeCardWarehouse TCW = new TimeCardWarehouse();
-    private PaystubWarehouse PSW = new PaystubWarehouse();
+    private TimeCardWarehouse TCW;
+    private PaystubWarehouse PSW;
 
     public Employee(long employeeId, String name, String addr, String city, String state, String phone, String email) {
         super(name, addr, city, state, phone, email);
         this.employeeId = employeeId;
+        this.TCW = new TimeCardWarehouse();
+        this.PSW = new PaystubWarehouse();
         hireDate = LocalDateTime.now();
         terminationDate = null;
         salaryTier=SalaryTier.LOW;
@@ -61,8 +64,8 @@ public class Employee extends Person {
 
     public PaystubWarehouse getPSW() {
         return PSW;
-
     }
+
 
     public Paystub getPaystub(String fromDate) {
         return PSW.get(fromDate);
@@ -98,9 +101,11 @@ public class Employee extends Person {
     }
 
     public String[] getAllPaystubRecords() {
-        String[] paystubList = new String[PSW.getSize()];
-        ArrayList<Paystub> paystubs = PSW.getList();
-        for (int i = 0; i < paystubs.size(); i++) {
+
+        ArrayList<Paystub> paystubs = this.PSW.getList();
+        String[] paystubList = new String[this.PSW.getSize()];
+
+        for (int i = 0; i < paystubList.length; i++) {
             Paystub paystub = paystubs.get(i);
             String line = paystub.toString();
             paystubList[i] = line;

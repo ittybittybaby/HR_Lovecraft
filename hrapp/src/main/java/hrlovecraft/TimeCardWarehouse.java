@@ -8,13 +8,10 @@ import java.util.Date;
 
 public class TimeCardWarehouse extends Warehouse<TimeCard> {
 
-
     private ArrayList<TimeCard> timeCards = getList();
-
 
     public void add(TimeCard card) {
         timeCards.add(card);
-
     }
 
     public TimeCard get(String date) {
@@ -32,7 +29,7 @@ public class TimeCardWarehouse extends Warehouse<TimeCard> {
 
     public static LocalDateTime stringToDate(String date) {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM-dd-yyyy-HHmm");
-        return LocalDateTime.parse(date + "-0000", formatter);
+        return LocalDateTime.parse(date+ "-0000", formatter);
     }
 
     //change to/from dates types after TimeCard class complete
